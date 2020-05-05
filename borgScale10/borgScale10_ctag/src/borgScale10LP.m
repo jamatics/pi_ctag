@@ -36,18 +36,27 @@ sqr = csv2cell('/home/osboxes/repo/pi_ctag/borgScale10/borgScale10_ctag/test_dat
 sumResult = sum(cell2mat(sqr(2:end,2)));
 
 if (sumResult == 0)
-  globalRes = ('None');
+  localRes = ('None');
 elseif (sumResult >= 1 && sumResult <= 16)
-  globalRes = ('Annoying');
+  localRes = ('Annoying');
 elseif (sumResult >= 17 && sumResult <= 32)
-  globalRes = ('Uncomfortable');
+  localRes = ('Uncomfortable');
 elseif (sumResult >= 33 && sumResult <=48)
-  globalRes = ('Dreadful');
+  localRes = ('Dreadful');
 elseif (sumResult >= 49 && sumResult <= 64)
-  globalRes = ('Horrible');  
+  localRes = ('Horrible');  
 elseif (sumResult >= 65)
-  globalRes = ('Agonizing');
+  localRes = ('Agonizing');
 endif
 
-globalRes
+localRes
+localScore = (sumResult)
+neckScore = cell2mat(sqr(2,2))
+upperBackScore = cell2mat(sqr(3,2))
+shoulderScore = cell2mat(sqr(4,2))
+midBackScore = cell2mat(sqr(5,2))
+elbowScore = cell2mat(sqr(6,2))
+lowBackScore = cell2mat(sqr(7,2))
+wristHandsScore = cell2mat(sqr(8,2))
+buttocksHipsThighsScore = cell2mat(sqr(9,2))
 
