@@ -6,7 +6,7 @@
     % H2020 Progamme under TestEd FTP Eurobench.			%
     %                                                                         %
     % Copyright (c) 2019-2020 CTAG and the authors                            %
-    % Author(s): Jawad Masood & Federico Macció                               %
+    % Author(s): Jawad Masood                                                 %
     %                                                                         %
     % Licensed under the Apache License, Version 2.0 (the "License");         %
     % you may not use this file except in compliance with the License.        %
@@ -24,4 +24,29 @@
     % Author(s): Jawad Masood						      %
     % ----------------------------------------------------------------------- %
 
+clear; 
+close all;
+clc;
+
+data = textread('/home/jawad/repo/pi_ctag/hrMonitoring/hrMonitoring_ctag/tests/data/input/subject_01_run_01_hrv.txt');
+%% RMSSD Root Mean Square of 
+% the Successive Differences
+% msec 
+RMSSD = sqrt(mean(diff(data).*diff(data)))
+  
+%% Standard deviation of RR
+
+SDNN = std(data); %msec
+
+%% NN50
+
+alpha = 50; %ms
+
+NN50 = sum(abs(diff(data)) >= alpha)
+
+%% PNNAlpha PNN50
+alpha = 50; %ms
+
+pNN50 = sum(abs(diff(data)) >= alpha)/length(diff(data))
+    
 
