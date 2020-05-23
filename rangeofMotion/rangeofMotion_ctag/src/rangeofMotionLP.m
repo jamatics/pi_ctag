@@ -23,5 +23,26 @@
     % rangeofMotionLP.m                                                              %
     % Author(s): Jawad Masood						      %
     % ----------------------------------------------------------------------- %
+clear,clc, close all
+
+% We need to check the following code before
+DatosSubjects =load(sprintf (".\\tests\\data\\input\\%sa%s.txt", subject,run));
+
+% EXTRAER DATOS DE ETIQUETAS, MAXIMOS Y MINIMOS DE CADA EJE Y ARTICULACION
+
+for i=2:length(DatosSubjects.data(1,:))  
+  Datos_Maximos_Minimos{1,i-1} = max(DatosSubjects.data(:,i));  % Datos Maximos
+  Datos_Maximos_Minimos{2,i-1} = min(DatosSubjects.data(:,i));  % Datos Minimos
+end
 
 
+% We will include more code here to check the complaince of target joint angles with the relevant standard. Work in progress.
+
+% PLOTEAR
+
+
+for i=1:length(Datos_Maximos_Minimos)
+    hold on 
+    plot(i,Datos_Maximos_Minimos{1,i},'r*'); % Valores maximos de color rojo
+    plot(i,Datos_Maximos_Minimos{2,i},'g*'); % Valores minimos de color verde 
+end
