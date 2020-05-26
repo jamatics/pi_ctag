@@ -32,7 +32,25 @@ clear;
 close all;
 clc;
 
-sqr = csv2cell('/home/osboxes/repo/pi_ctag/borgScale10/borgScale10_ctag/test_data/input/questionnaire5_narrow_1.csv', ';');
+csv_file = '../tests/data/input/subject_01_questionnaire_borgScale10.csv';
+result_dir = '../tests/data/output';
+
+  disp(["Input parameters: ", csv_file, " ", result_dir])
+    isOctave = exist('OCTAVE_VERSION', 'builtin') ~= 0;
+
+
+if isOctave
+        disp('Using Octave')
+        pkg load signal
+        pkg load mapping
+        pkg load statistics
+    else
+        disp('Using Matlab')
+    end
+
+
+
+sqr = csv2cell(csv_file, ';');
 sumResult = sum(cell2mat(sqr(2:end,2)));
 
 if (sumResult == 0)
@@ -60,3 +78,9 @@ lowBackScore = cell2mat(sqr(7,2))
 wristHandsScore = cell2mat(sqr(8,2))
 buttocksHipsThighsScore = cell2mat(sqr(9,2))
 
+totalResult = [localScore, neckScore, upperBackScore,shoulderScore, midBackScore, elbowScore,lowBackScore, wristHandsScore, buttocksHipsThighsScore]
+
+[filepath, name, ext] = fileparts(csv_file);
+
+    filename = strcat(result_dir, "/", "Local_Score", ".yaml")
+    store_vector(filename, totalResult);
