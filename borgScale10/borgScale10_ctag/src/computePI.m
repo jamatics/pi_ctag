@@ -24,10 +24,6 @@
     % Author(s): Jawad Masood						      %
     % ----------------------------------------------------------------------- %
     
-    
-pkg load io;
-pkg load signal;
-
 clear; 
 close all;
 clc;
@@ -38,12 +34,12 @@ result_dir = '../tests/data/output';
   disp(["Input parameters: ", csv_file, " ", result_dir])
     isOctave = exist('OCTAVE_VERSION', 'builtin') ~= 0;
 
-
 if isOctave
         disp('Using Octave')
         pkg load signal
         pkg load mapping
         pkg load statistics
+        pkg load io;
     else
         disp('Using Matlab')
     end
@@ -68,19 +64,19 @@ elseif (sumResult >= 65)
 endif
 
 localRes
-localScore = (sumResult)
-neckScore = cell2mat(sqr(2,2))
-upperBackScore = cell2mat(sqr(3,2))
-shoulderScore = cell2mat(sqr(4,2))
-midBackScore = cell2mat(sqr(5,2))
-elbowScore = cell2mat(sqr(6,2))
-lowBackScore = cell2mat(sqr(7,2))
-wristHandsScore = cell2mat(sqr(8,2))
-buttocksHipsThighsScore = cell2mat(sqr(9,2))
+localScore = (sumResult);
+neckScore = cell2mat(sqr(2,2));
+upperBackScore = cell2mat(sqr(3,2));
+shoulderScore = cell2mat(sqr(4,2));
+midBackScore = cell2mat(sqr(5,2));
+elbowScore = cell2mat(sqr(6,2));
+lowBackScore = cell2mat(sqr(7,2));
+wristHandsScore = cell2mat(sqr(8,2));
+buttocksHipsThighsScore = cell2mat(sqr(9,2));
 
 totalResult = [localScore, neckScore, upperBackScore,shoulderScore, midBackScore, elbowScore,lowBackScore, wristHandsScore, buttocksHipsThighsScore]
 
 [filepath, name, ext] = fileparts(csv_file);
 
-    filename = strcat(result_dir, "/", "Local_Score", ".yaml")
+    filename = strcat(result_dir, "/", "Local_Score", ".yaml");
     store_vector(filename, totalResult);

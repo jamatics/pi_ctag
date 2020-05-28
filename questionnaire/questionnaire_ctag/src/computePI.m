@@ -24,4 +24,74 @@
     % Author(s): Jawad Masood						      %
     % ----------------------------------------------------------------------- %
 
+clear; 
+close all;
+clc;
+
+csv_file = '../tests/data/input/subject_01_questionnaire_medAssist.csv';
+%csv_file = '../tests/data/input/subject_xx_questionnaire_medAssist.csv';
+%csv_file = '../tests/data/input/subject_xx_questionnaire_highAssist.csv';
+%csv_file = '../tests/data/input/subject_xx_questionnaire_noAssist.csv';
+result_dir = '../tests/data/output';
+
+  disp(["Input parameters: ", csv_file, " ", result_dir])
+    isOctave = exist('OCTAVE_VERSION', 'builtin') ~= 0;
+
+if isOctave
+        disp('Using Octave')
+        pkg load signal
+        pkg load mapping
+        pkg load statistics
+        pkg load io;
+    else
+        disp('Using Matlab')
+    end
+
+    sqr = csv2cell(csv_file, ';');
+
+% To detect the correct assistance level from file name  
+[filepath, name, ext] = fileparts(csv_file);
+indices = strfind(name, '_');
+str = {"lowAssist","medAssist","highAssist","noAssist"};
+%disp ("Loop over a matrix")
+for i = [1,2,3,4]
+  assistLevel = strfind(name, str (i));
+  a = cell2mat(assistLevel);
+    if (a > 1)
+      z = i;
+    endif
+endfor
+
+% Main algorithmn to sum scores collected from the questionnaires
+if (z == 1)
+usability = sum(cell2mat(sqr(2:6,2)));
+utility = sum(cell2mat(sqr(7:11,2)));
+impact = sum(cell2mat(sqr(12:15,2))) + sum(cell2mat(sqr(18:19,2)));
+elseif (z > 1 && z <= 3)
+usability = sum(cell2mat(sqr(2:5,2)));
+utility = sum(cell2mat(sqr(6:10,2)));
+impact = sum(cell2mat(sqr(11:14,2))) + sum(cell2mat(sqr(17:18,2)));
+elseif (z == 4)
+usability = sum(cell2mat(sqr(2:16,2)));
+utility = 0;
+impact = 0;
+endif
+
+% Main results based on usability, utility and impact
+totalResult = [usability, utility, impact];
+
+% EB sop for saving the data to the output folder
+[filepath, name, ext] = fileparts(csv_file);
+
+    filename = strcat(result_dir, "/", "Local_Score", ".yaml");
+    store_vector(filename, totalResult);
+
+% Tested with low assist and medium assist. Require verification for high ...
+% assist and no assist.
+
+ 
+
+
+
+
 
