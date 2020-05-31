@@ -23,148 +23,43 @@
     % chronoLP.m                                                              %
     % Author(s): Jawad Masood						      %
     % ----------------------------------------------------------------------- %
-function value = chronoScorer(inputData);
+clear; 
+close all;
+clc;
+format longG;
 
-header = buildHeader(2); %Calls an external function (builderHeader) to build the header of the answer. This function is located in C:/GIT/Eurobench/OctaveScripts/utils
-payload.scores = {}; %answer object creation
+csv_file = "../tests/data/input/subject_01_run_01_chrono.csv";
+result_dir = "../tests/data/output";
 
-locChronoLowExo=0.0;
-locChronoMedExo=0.0;
-locChronoHighExo=0.0;
-locChronoNoAssistExo=0.0;
-gloChronoRes=0.0;
-mean_noExo=0.0;
+disp(["Input parameters: ", csv_file, " ", result_dir])
+    isOctave = exist('OCTAVE_VERSION', 'builtin') ~= 0;
 
-assistances = inputData.payload{1,1}.assistances;
-r = inputData.payload{1,1}.qtyRuns;
-a = inputData.payload{1,1}.qtyAssistanceLevel;
-testID = inputData.payload{1,1}.testSessionId;
-resultChrono.testSessionId = testID;
-resultChrono.metricId = inputData.payload{1,1}.metricId;
-resultChrono.assistances = {};
-
-locChrono=zeros(5,1);
-
-%Find NO EXO results first
- for assistance=assistances  
-    cFP = assistance{1,1}.runs;  
-    assistIndex = assistance{1,1}.assistanceNumber;  
-    
-    for nRun = 1:columns(cFP)
-      assistID = cFP{1, nRun}.assistanceId;
-      subjtID = cFP{1, nRun}.subjectId;
-      runNumb = cFP{1, nRun}.runNumber;
-     
-      if (assistID == 5)
-          analysis_noExo(nRun) = str2double(cFP{1,nRun}.timestampDiff);
-          printf("\n timeDIFF: %f", analysis_noExo(nRun));
-          mean_medExo = 0;
-          mean_highExo = 0;
-          mean_noAssistExo = 0;
-   
-          mean_noExo = double(sum(analysis_noExo))/double(r);
-          printf("\n mean_noExo: %f", mean_noExo);
-          locChrono(assistIndex) = 100;
-          printf("\n locChrono: %f", locChrono(assistIndex));
-
-       endif    
-       
-    endfor
- 
-endfor
+if isOctave
+  disp('Using Octave')
+  pkg load signal;
+  pkg load mapping;
+  pkg load statistics;
+  pkg load io;
+else
+  disp('Using Matlab')
+  endif
 
 
-%Calculate scores
-  for assistance=assistances  
-    cFP = assistance{1,1}.runs; 
-    analysis_lowExo = zeros(r,1);
-    analysis_medExo = zeros(r,1);
-    analysis_highExo = zeros(r,1);
-    analysis_noAssistExo = zeros(r,1);
-    assistIndex = assistance{1,1}.assistanceNumber;
-    
-    for nRun = 1:columns(cFP)
-      assistID = cFP{1, nRun}.assistanceId;
-      subjtID = cFP{1, nRun}.subjectId;
-      runNumb = cFP{1, nRun}.runNumber;
-      
-      switch (assistID)
+rawData = csv2cell(csv_file, ',');
+header = rawData(1, :);
+taskTime = cell2mat(rawData(2:end, 1));
+entryTime = taskTime(1, 1);
+exitTime = taskTime(length(taskTime), 1);
+taskCompletionTime = (exitTime - entryTime)/(1000);
 
-      case 1        
-          analysis_lowExo(nRun) = str2double(cFP{1,nRun}.timestampDiff);
-          printf("\n timeDIFF: %f", analysis_lowExo(nRun));
-          printf("\n mean_noExo: %f", mean_noExo);
+% Sub-task completion algo may be added depending on resources
 
-          mean_lowExo = double(sum(analysis_lowExo))/double(r);
-          printf("\n mean_lowExo: %f", mean_lowExo);
-          mean_medExo = 0;
-          mean_highExo = 0;
-          mean_noAssistExo = 0;         
-          locChronoLowExo = ((mean_noExo - mean_lowExo)/mean_noExo);
+totalResult = [taskCompletionTime];
 
-          locChrono(assistIndex) = ((mean_noExo - mean_lowExo)/mean_noExo)*100;
-          printf("\n locChrono: %f", locChrono(assistIndex));
-         
-      case 2
-          analysis_medExo(nRun) =  str2double(cFP{1,nRun}.timestampDiff);
-          printf("\n timeDIFF: %f", analysis_medExo(nRun));
-          printf("\n mean_noExo: %f", mean_noExo);
-          mean_lowExo = 0;
-          mean_medExo = double(sum(analysis_medExo))/double(r);
-          printf("\n mean_medExo: %f", mean_medExo);
-          mean_highExo = 0;
-          mean_noAssistExo = 0;
-          locChronoMedExo = ((mean_noExo - mean_medExo)/mean_noExo);
-          
-          locChrono(assistIndex) = ((mean_noExo - mean_medExo)/mean_noExo)*100;
-          printf("\n locChrono: %f", locChrono(assistIndex));
-         
-      case 3
-          analysis_highExo(nRun) = str2double(cFP{1,nRun}.timestampDiff);
-          printf("\n timeDIFF: %f", analysis_highExo(nRun));
-          printf("\n mean_noExo: %f", mean_noExo);
-          mean_lowExo = 0;
-          mean_medExo = 0;
-          mean_highExo = double(sum(analysis_highExo))/double(r);
-          printf("\n mean_highExo: %f", mean_highExo);
-          mean_noAssistExo = 0;       
-          locChronoHighExo = ((mean_noExo - mean_highExo)/mean_noExo);
-         
-          locChrono(assistIndex) = ((mean_noExo - mean_highExo)/mean_noExo)*100;
-          printf("\n locChrono:  %f", locChrono(assistIndex));
-         
-      case 4
-          analysis_noAssistExo(nRun) = str2double(cFP{1,nRun}.timestampDiff);
-          printf("\n timeDIFF: %f", analysis_noAssistExo(nRun));
-          printf("\n mean_noExo: %f", mean_noExo);
-          mean_lowExo = 0;
-          mean_medExo = 0;
-          mean_highExo = 0;
-          mean_noAssistExo = double(sum(analysis_noAssistExo))/double(r);
-          printf("\n mean_noAssistExo: %f", mean_noAssistExo);       
-          locChronoNoAssistExo = ((mean_noExo - mean_noAssistExo)/mean_noExo);
-         
-          locChrono(assistIndex) = ((mean_noExo - mean_noAssistExo)/mean_noExo)*100;
-          printf("\n locChrono: %f", locChrono(assistIndex));
+% EB sop for saving the data to the output folder
 
-       endswitch    
-       
-    endfor
-      resultAssistance.assistanceId = assistance{1,1}.assistanceId;    
-      resultAssistance.assistanceNumber = assistance{1,1}.assistanceNumber;  
-      resultAssistance.score = locChrono(assistIndex);
-      resultChrono.assistances{end +1} = resultAssistance;  
-  endfor
- 
-  %Simple global result  
-  globalResult = ((locChronoLowExo+locChronoMedExo+locChronoHighExo+locChronoNoAssistExo)/double((a-1)))*100;
+[filepath, name, ext] = fileparts(csv_file);
 
-  resultChrono.globalResult = globalResult
-  payload.scores{1,1} = resultChrono;
-  %savejson(payload)
-  value = struct('header',header,'payload',payload);
-endfunction
+    filename = strcat(result_dir, "/", "Local_Score", ".yaml");
+    store_scalar(filename, totalResult);
 
-function value = buildPayload(id,score)
-  value = struct('scoreId',id,'score',score);
-endfunction
