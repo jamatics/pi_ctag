@@ -28,25 +28,51 @@ clear;
 close all;
 clc;
 
-data = textread('/home/jawad/repo/pi_ctag/hrMonitoring/hrMonitoring_ctag/tests/data/input/subject_01_run_01_hrv.txt');
+csv_file = "../tests/data/input/subject_01_run_01_hrv.csv";
+result_dir = "../tests/data/output";
+
+disp(["Input parameters: ", csv_file, " ", result_dir])
+    isOctave = exist('OCTAVE_VERSION', 'builtin') ~= 0;
+
+if isOctave
+  disp('Using Octave')
+  pkg load signal;
+  pkg load mapping;
+  pkg load statistics;
+  pkg load io;
+else
+  disp('Using Matlab')
+  endif
+
+hrv = csv2cell(csv_file, ',');
+hrv = cell2mat(hrv(1:end,:));
+
 %% RMSSD Root Mean Square of 
 % the Successive Differences
 % msec 
-RMSSD = sqrt(mean(diff(data).*diff(data)))
+RMSSD = sqrt(mean(diff(hrv).*diff(hrv)));
   
 %% Standard deviation of RR
 
-SDNN = std(data); %msec
+SDNN = std(hrv); %msec
 
 %% NN50
 
 alpha = 50; %ms
 
-NN50 = sum(abs(diff(data)) >= alpha)
+NN50 = sum(abs(diff(hrv)) >= alpha);
 
 %% PNNAlpha PNN50
 alpha = 50; %ms
 
-pNN50 = sum(abs(diff(data)) >= alpha)/length(diff(data))
+pNN50 = sum(abs(diff(hrv)) >= alpha)/length(diff(hrv));
+
+totalResult = [RMSSD, SDNN, NN50, pNN50];
+
+% EB sop for saving the data to the output folders
+[filepath, name, ext] = fileparts(csv_file);
+
+    filename = strcat(result_dir, "/", "Local_Score", ".yaml");
+    store_vector(filename, totalResult);
     
 
