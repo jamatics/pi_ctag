@@ -3,7 +3,7 @@
 %
 % Extract from a simple and 1 level yaml the data in it
 %
-% Anthony Remazeilles
+% Anthony Remazeilles and Jawad Masood
 % Copyright Tecnalia 2019
 % Beerware license.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -12,7 +12,8 @@ function data = read_simple_yaml(filename)
 
     fid = fopen(filename);
 
-    spec = "%s %s";
+    spec = "%s %s"; %spec = "%s %f";
+	
     infile = textscan(fid, spec, 'Delimiter', ':');
 
     labels = infile{1};
