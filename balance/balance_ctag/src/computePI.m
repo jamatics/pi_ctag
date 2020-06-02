@@ -20,8 +20,8 @@
     % permissions and limitations under the License.                          %
     % ----------------------------------------------------------------------- %
     %                                                                         %
-    % balanceLP.m                                                              %
-    % Author(s): Jawad Masood						      %
+    % balanceLP.m                                                             %
+    % Author(s): Jawad Masood                                                 %
     % ----------------------------------------------------------------------- %
     % ----------------------------------------------------------------------- %
     % ABSTRACT: This code developed in Octave demonstrates how to predict the %
@@ -173,5 +173,5 @@ maxat, maxTime/100, minat, minTime/100];
 % EB sop for saving the data to the output folders
 [filepath, name, ext] = fileparts(csv_file);
 
-    filename = strcat(result_dir, "/", "Local_Score", ".yaml");
-    store_vector(filename, totalResult);
+filename = strcat(result_dir, "/", "Local_Score", ".yaml");
+store_vector(filename, totalResult);
