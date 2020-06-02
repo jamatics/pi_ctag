@@ -33,13 +33,24 @@ the form of the 3d force vector(x, y, z)
 ## Variables
 
 clear: clears all variables values from symbol table.
+
 close all: close all the opened figures.
+
 clc: clears the terminal screen and moves the cursor to the upper left corner.
-rawDataA || rawDataD:
-matrices with the raw data from 2 forceplates time (in hundreths of
-seconds), Fx (ground medial-lateral forces), Fy (ground anterior-
-posterior forces), Fz (ground vertical reaction forces),Mx,My,Mz
-(momentums of the forces).
+
+subject_xx_run_xx_balance file structure:
+
+colomns  with the raw data from 2 forceplates with time in first column 
+time (in hundreths of seconds), 
+
+Fx (ground medial-lateral forces), 
+
+Fy (ground anterior-posterior forces), 
+
+Fz (ground vertical reaction forces),
+
+Mx,My,Mz(momentums of the forces) (Optional for future use)
+
 BWs1: Body weights of the subject 1.
 
 reactForce_x_l || reactForce_x_r: Fx of both forceplates.
@@ -71,27 +82,28 @@ DPSI area vs time) for human mobility in the testbed.
 
 The main simple algorithm uses four functions to obtain the desired:
 max function [source octave]
+
 min function [source octave]
+
 mean function [source octave]
+
 sum function [source octave]
+
 store_vector [source EB]
+
 read_simple_yaml [source EB]
 
 ## References
 1. [Sell, T.C., 2012. An examination, correlation, and comparison of static 
 and dynamic measures of postural stability in healthy, physically active 
-adults. Physical Therapy in Sport, 13(2), pp.80-86.]
-(https://www.uky.edu/chs/sites/chs.uky.edu/files/SMRI/Publications/Sell_2012_Examination%20correlation%20and%20comparison%20of%20static%20and%20dynamic%20measures%20of%20postural%20stability%20in%20healthy%20physically%20active%20adult_0.pdf)
+adults. Physical Therapy in Sport, 13(2), pp.80-86.](https://www.uky.edu/chs/sites/chs.uky.edu/files/SMRI/Publications/Sell_2012_Examination%20correlation%20and%20comparison%20of%20static%20and%20dynamic%20measures%20of%20postural%20stability%20in%20healthy%20physically%20active%20adult_0.pdf)
 2. [Wikstrom, E.A., Tillman, M.D., Chmielewski, T.L., Cauraugh, J.H. and Borsa, 
 P.A., 2007. Dynamic postural stability deficits in subjects with self-reported 
-ankle instability. Medicine & Science in Sports & Exercise, 39(3), pp.397-402.]
-(https://www.academia.edu/download/44341142/Dynamic_postural_stability_deficits_in_s20160402-18805-3xvpcy.pdf)
+ankle instability. Medicine & Science in Sports & Exercise, 39(3), pp.397-402.](https://www.academia.edu/download/44341142/Dynamic_postural_stability_deficits_in_s20160402-18805-3xvpcy.pdf)
 3. [Schmitz, J., 2017. Comparison and correlation of dynamic postural stability 
 indices obtained during different dynamic landing tasks and footwear 
-conditions (Doctoral dissertation, University of Pittsburgh).]
-(http://d-scholarship.pitt.edu/32755/1/Schmitzjl_etdPitt2017.pdf)
+conditions (Doctoral dissertation, University of Pittsburgh).](http://d-scholarship.pitt.edu/32755/1/Schmitzjl_etdPitt2017.pdf)
 4. [Wikstrom, E.A., Tillman, M.D., Smith, A.N. and Borsa, P.A., 2005. 
 A new force-plate technology measure of dynamic postural stability: 
 the dynamic postural stability index. Journal of athletic training, 
-40(4), p.305.]
-(https://www.ncbi.nlm.nih.gov/pmc/articles/pmc1323292/)
+40(4), p.305.](https://www.ncbi.nlm.nih.gov/pmc/articles/pmc1323292/)
