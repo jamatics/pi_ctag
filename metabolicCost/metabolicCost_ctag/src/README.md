@@ -60,18 +60,51 @@ opt1a: If user choose 1. Maintenance of body posture user must select one of the
 following sub options: 1. Sitting or 2. Standing or 3. Standing and Bending
 
 opt1a: if user chooses 2. Other tasks then user must select one of the following
-22 options: 1: Stoop lift or 2: Squat lift or 3: One hand lift or 4: Arm lift or
-5. Stoop lower or 6. Squat lower or 7. Arm lower or 8. Walking or 9. Carrying, 
-loads held at arms length at sides (1 or 2 hands) or 10. Carrying, loads held 
-against thighs or against waist or 11. Holding, at arms length, against thighs 
-or at sides(2 hands) or 12. Holding against waist or 13. Holding, at arms length 
-in one hand or 14. Pushing/pulling, at bench height (0.8 meters) or 15. Pushing/
-pulling, at 1.5 meters height or 16. Lateral movement of arms of 180 degrees, 
-2 hands or 17. Lateral movement of arms of 180 degrees, 1 hand or 18. 90 degrees 
-arms lateral movement, standing, 1 or 2 hands or 19: 90 degrees arms lateral 
-movement, sitting, 2 hands or 20. 90 degrees arms lateral movement, sitting, 
-1 hand or 21: Forward movement of arms, standing, 1 or 2 hands or 22: Forward 
-movement of arms, sitting, 1 or 2 hands
+22 options: 
+
+1: Stoop lift or 
+
+2: Squat lift or 
+
+3: One hand lift or 
+
+4: Arm lift or
+
+5. Stoop lower or 
+
+6. Squat lower or 
+
+7. Arm lower or 
+
+8. Walking or 
+
+9. Carrying, loads held at arms length at sides (1 or 2 hands) or 
+
+10. Carrying, loads held against thighs or against waist or 
+
+11. Holding, at arms length, against thighs or at sides(2 hands) or 
+
+12. Holding against waist or 
+
+13. Holding, at arms length in one hand or 
+
+14. Pushing/pulling, at bench height (0.8 meters) or 
+
+15. Pushing/pulling, at 1.5 meters height or 
+
+16. Lateral movement of arms of 180 degrees, 2 hands or 
+
+17. Lateral movement of arms of 180 degrees, 1 hand or 
+
+18. 90 degrees arms lateral movement, standing, 1 or 2 hands or 
+
+19: 90 degrees arms lateral movement, sitting, 2 hands or 
+
+20. 90 degrees arms lateral movement, sitting, 1 hand or 
+
+21: Forward movement of arms, standing, 1 or 2 hands or 
+
+22: Forward movement of arms, sitting, 1 or 2 hands
 
 ## Initial code structure
 
@@ -88,4 +121,4 @@ postures. The function inputs are body weight and the Opt1a.
    function inputs all variables [see above] except opt1. 
 
 ## References
-1. [Shaffer, F. and Ginsberg, J.P., 2017. An overview of heart rate variability metrics and norms. Frontiers in public health, 5, p.258.](https://www.frontiersin.org/articles/10.3389/fpubh.2017.00258)
+1. [Garg, A., Chaffin, D.B. and Herrin, G.D., 1978. Prediction of metabolic rates for manual materials handling jobs. American Industrial Hygiene Association Journal, 39(8), pp.661-674.](https://oeh.tandfonline.com/doi/abs/10.1080/0002889778507831)
