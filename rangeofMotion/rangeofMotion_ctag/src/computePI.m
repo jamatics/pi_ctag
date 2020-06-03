@@ -2,11 +2,11 @@
     % The tedSR  API is a toolkit for scalable performance metrics and        %
     % simulation. See http://eurobench2020.eu/ and the NOTICE file            %
     % for more information. TedSR is developed at Fundación para la Promoción %
-    % de la Automoción en Galicia. CTAG, and supported by European Comission  %
-    % H2020 Progamme under TestEd FTP Eurobench.			%
+    % de la Automoción en Galicia. CTAG, and supported by European Commission %
+    % H2020 Programme under TestEd FTP Eurobench.			      %
     %                                                                         %
     % Copyright (c) 2019-2020 CTAG and the authors                            %
-    % Author(s): Jawad Masood & Federico Macció                               %
+    % Author(s): Federico Macció  & Jawad Masood      	                      %
     %                                                                         %
     % Licensed under the Apache License, Version 2.0 (the "License");         %
     % you may not use this file except in compliance with the License.        %
@@ -20,15 +20,30 @@
     % permissions and limitations under the License.                          %
     % ----------------------------------------------------------------------- %
     %                                                                         %
-    % rangeofMotionLP.m                                                       %
-    % Author(s): Jawad Masood						                                      %
+    % computePI.m                                                             %
+    %                                                                         %
     % ----------------------------------------------------------------------- %
+    %                                                                         %
+    % GNU Octave, version 5.1.0 Copyright (C) 2018 John W. Eaton and others.  %
+    % This is free software; see the source code for copying conditions.      %
+    % There is ABSOLUTELY NO WARRANTY; not even for MERCHANTABILITY or        %
+    % FITNESS FOR A PARTICULAR PURPOSE.                                       %
+    % Octave was configured for "x86_64-w64-mingw32".                         %
+    % Additional information about Octave is available at                     %
+    % https://www.octave.org                                                  %
+    % Please contribute if you find this software useful.                     %
+    % For more information, visit https://www.octave.org/get-involved.html    %
+    % Read https://www.octave.org/bugs.html to learn how to submit bug        %
+    % reports.                                                                %
+    % ----------------------------------------------------------------------- %
+
+function result = computePI(csv_file, result_dir)
 clear; 
 close all;
 clc;
 
-csv_file = "../tests/data/input/subject_03_trial_01_jointAngles.csv";
-result_dir = "../tests/data/output";
+%csv_file = "../tests/data/input/subject_03_trial_01_jointAngles.csv";
+%result_dir = "../tests/data/output";
 
 disp(["Input parameters: ", csv_file, " ", result_dir])
     isOctave = exist('OCTAVE_VERSION', 'builtin') ~= 0;
@@ -46,7 +61,6 @@ else
 angles = csv2cell(csv_file, ',');
 header = angles(1, :);
 angles = cell2mat(angles(2:end, :));
-
 
 
 joint_name = ["r_forearm/lumbar_x"];
@@ -127,6 +141,7 @@ counter_l_ankle_x, maxVal_l_ankle, minVal_l_ankle]
 % counter is producing erronious result require a thorough check in data 
 [filepath, name, ext] = fileparts(csv_file);
 
-    filename = strcat(result_dir, "/", "Local_Score", ".yaml");
-    store_vector(filename, totalResult);
+filename = strcat(result_dir, "/", "Local_Score", ".yaml");
+store_vector(filename, totalResult);
 
+endfunction

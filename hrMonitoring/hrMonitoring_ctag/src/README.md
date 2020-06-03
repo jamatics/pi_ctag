@@ -1,4 +1,4 @@
-# balance
+# hrMonitoring
 
 Code developed by CTAG, and optimized for Eurobench by CTAG on Tecnalia
 proposal.
@@ -10,8 +10,8 @@ Follow the upper [Readme](../README.md) indications.
 ## Description
 
 ### Abstract
-This code developed in Octave demonstrates how to measure the Dynamic
-Posture Stability Index (DPSI) of the subject performing mobility tasks 
+This code developed in Octave demonstrates how to measure the Root Mean Square
+of Successive Difference (RMSSD),  of the subject performing mobility tasks 
 
 The current entry point is [computePI.m](computePI.m).
 

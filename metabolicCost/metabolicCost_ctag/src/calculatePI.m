@@ -2,11 +2,11 @@
     % The tedSR  API is a toolkit for scalable performance metrics and        %
     % simulation. See http://eurobench2020.eu/ and the NOTICE file            %
     % for more information. TedSR is developed at Fundación para la Promoción %
-    % de la Automoción en Galicia. CTAG, and supported by European Comission  %
-    % H2020 Progamme under TestEd FTP Eurobench.			%
+    % de la Automoción en Galicia. CTAG, and supported by European Commission %
+    % H2020 Programme under TestEd FTP Eurobench.			      %
     %                                                                         %
     % Copyright (c) 2019-2020 CTAG and the authors                            %
-    % Author(s): Jawad Masood & Federico Macció                               %
+    % Author(s): Jawad Masood & Federico Macció    	                      %
     %                                                                         %
     % Licensed under the Apache License, Version 2.0 (the "License");         %
     % you may not use this file except in compliance with the License.        %
@@ -20,14 +20,9 @@
     % permissions and limitations under the License.                          %
     % ----------------------------------------------------------------------- %
     %                                                                         %
-    % metaBolicCostLP.m                                                              %
-    % Author(s): Jawad Masood						      %
+    % computePI.m                                                             %
+    %                                                                         %
     % ----------------------------------------------------------------------- %
-
-
- 
-    % ----------------------------------------------------------------------- %
-    % Dependencies with licence information as comments:                      %
     %                                                                         %
     % GNU Octave, version 5.1.0 Copyright (C) 2018 John W. Eaton and others.  %
     % This is free software; see the source code for copying conditions.      %
@@ -41,68 +36,8 @@
     % Read https://www.octave.org/bugs.html to learn how to submit bug        %
     % reports.                                                                %
     % ----------------------------------------------------------------------- %
- 
- 
-    % ----------------------------------------------------------------------- %
-    % All parameters and variables:                                           %
-    %                                                                         %
-    %                                                                         %
-    % opt1:  allows user to choose between two main options(user input)       %
-    %               1) Maintenance of body postures                           %
-    %               2) Net metabolic cost of tasks                            %
-    %                                                                         %
-    % opt2: allows user to choose between 3 maintenance of body               %
-    %               postures (user input).                                    %
-    %                                                                         %
-    % opt3:  allows user to choose between 22 metabolic cost tasks            %
-    %               (user input).                                             %
-    %                                                                         %
-    % BW: Body Weigh in kg (user input).                                      %
-    %                                                                         %
-    % S:  Gender; 1 for males and 0 for females(user input).                  %
-    %                                                                         %
-    % L:  Weigh of the load in kg (user input).                               %
-    %                                                                         %
-    % h1: Vertical height from floor, STARTING point for lift and END point   %
-    %     for lower, in meters (user input).                                  %
-    %                                                                         %
-    % h2: Vertical height from floor, STARTING point for lift and END point   %
-    %     for lower, in meters (user input).                                  %
-    %                                                                         %
-    % V:  Speed of walking in meters per second (user input).                 %
-    %                                                                         %
-    % G:  Grade of the walking surface as a percenteage (user input).         %
-    %                                                                         %
-    % t:  Time in minutes (user input).                                       %
-    %                                                                         %
-    % F:  Average pushing/pulling force applied by hands in kg (user input).  %
-    %                                                                         %
-    % X:  Horizontal movement of work piece in meters (user input).           %
-    %                                                                         %
-    % res: result of the the specific case (app output).                      %
-    %                                                                         %
-    % fid: text file identification to record this app results.               %
-    %                                                                         %
-    % printVar: variable used to shorter the console printing commands.       %
-    %                                                                         %
-    % time= time of the app start.                                            %
-    %                                                                         %
-    % clear: clears all variables values from symbol table.                   %
-    %                                                                         %
-    % clc: clears the terminal screen and moves the cursor to the upper left  %
-    %      corner.                                                            %
-    %                                                                         %
-    % fflush: ensures that all pending output makes it to the screen before   %
-    %         some other event occurs. It's good to flush the standard output %
-    %         stream before calling 'input' methods.                          %
-    %                                                                         %
-    % ----------------------------------------------------------------------- %
- 
-    % Base values for testing:
 
- 
-    % ----------------------------------------------------------------------- %
-    % Simulate or plotting commands:
+function result = computePI(csv_file, testbed_file, result_dir)
  
 clear; 
 close all;
@@ -154,7 +89,6 @@ exitTime = taskTime(length(taskTime), 1);
 taskCompletionTime = (exitTime - entryTime)/(1000*60);
 t = taskCompletionTime;
 
-% Task 1
 switch (opt1);
   case (1);
     [res1] = postureMaintain(bw,opt1a);
@@ -182,6 +116,7 @@ totalResult = [res1, res2, res3, res1+res2+res3];
 % EB sop for saving the data to the output folders
 [filepath, name, ext] = fileparts(csv_file);
 
-    filename = strcat(result_dir, "/", "Local_Score", ".yaml");
-    store_vector(filename, totalResult);
+filename = strcat(result_dir, "/", "Local_Score", ".yaml");
+store_vector(filename, totalResult);
 
+endfunction
