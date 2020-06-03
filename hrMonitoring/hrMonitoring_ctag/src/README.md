@@ -27,8 +27,6 @@ The two parameters are:
 - `subject_xx_run_xx_hrv.csv`: a `csv` file containing the heart rate 
 variation  in ms presented in first column. 
 
-We are expecting values for left and right hand forces plate in 
-the form of the 3d force vector(x, y, z) 
 
 ### Variables
 
@@ -47,7 +45,7 @@ performing mobility tasks
 
 The current documentation may not be updated.
 
-Octave algorithm to obtain RMSSD, SDNN, NN50 and pNN50for human mobility 
+Octave algorithm to obtain RMSSD, SDNN, NN50 and pNN50 for human mobility 
 in the testbed.
 
 ## References
