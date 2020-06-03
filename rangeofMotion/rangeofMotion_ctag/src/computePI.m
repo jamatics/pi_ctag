@@ -42,7 +42,7 @@ clear;
 close all;
 clc;
 
-%csv_file = "../tests/data/input/subject_03_trial_01_jointAngles.csv";
+%csv_file = "../tests/data/input/subject_03_run_01_jointAngles.csv";
 %result_dir = "../tests/data/output";
 
 disp(["Input parameters: ", csv_file, " ", result_dir])
