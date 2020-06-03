@@ -37,7 +37,7 @@
     % reports.                                                                %
     % ----------------------------------------------------------------------- %
 
-function result = computePI(csv_file, testbed_file, result_dir)
+function result = computePI(csv_file, result_dir)
 
 clear; 
 close all;
