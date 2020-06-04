@@ -30,6 +30,12 @@ sqr: quantitative subject response to Borg Scale 10
 
 The current documentation may not be updated.
 
+Brief structure is listed below:
+
+| Metric | Input | Expected units | Variable name | Format | Data Example | Input file | information MAP |
+|-|-|-|-|-|-|-|-|
+| Borg Scale 10 | subject response | Perceived rating in likert | sqr | String | 00 .. 9 | subject_xx_questionnaire_borgScale10.csv | userInput>TedSR>inputFile |
+
 Octave algorithm to obtain the borg scale total score and score on different body parts. 
 
 

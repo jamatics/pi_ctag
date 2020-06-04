@@ -33,6 +33,12 @@ exitTime: time when person exits the testbed
 
 The current documentation may not be updated.
 
+Brief code structure is listed below:
+
+| Metric | Input | Expected units | Variable name | Format | Data Example | Input file | information MAP |
+|-|-|-|-|-|-|-|-|
+| Chrono | Time | seconds (s) | rawData | Double | 0.5, 3, 59, 120 ... | subject_xx_run_xx_chrono.csv | proximitySensor>TestEd> nodeRed >rawData_T_TestID_RunNumber_timestamp.csv> preProcess>inputFile |
+
 Octave algorithm to obtain the cycle time/task completion time. The algorithm return a 
 scalar value.
 

@@ -67,6 +67,13 @@ minumum time.
 
 The current documentation may not be updated.
 
+Brief structure is listed below:
+
+| Metric | Input | Expected units | Variable name | Format | Data Example | Input file | information MAP |
+|-|-|-|-|-|-|-|-|
+| Balance | Ground Reaction Force | Newtons | reactForces | Double | 10.5, 34.6, .... | subject_xx_run_xx_balance.csv | portableMocap(CSIC) > preProcess > inputFile |
+
+
 Octave algorithm to obtain DPSI (max, min, min time instance, max time instance,
 DPSI area vs time) for human mobility in the testbed.
 

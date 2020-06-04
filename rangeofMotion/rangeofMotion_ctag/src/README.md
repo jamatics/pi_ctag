@@ -40,6 +40,12 @@ The current documentation may not be updated.
 
 Octave algorithm to check the investigating joints are within the recommended limits.
 
+Brief structure is listed below:
+
+| Metric | Input | Expected units | Variable name | Format | Data Example | Input file | information MAP |
+|-|-|-|-|-|-|-|-|
+| Range of Motion | Joint Angles | deg (Degrees) | angles | Double | 2.5, 3.5, 0.34, ...  | subject_xx_run_xx_jointAngles.csv | portableForcePlate(CSIC)> preProcess >inputFile |
+
 The algorithm consists of a function called romCheck that read the joint angles 
 and joint limits and return maximum value, minimum value and counter to detect how 
 many number of times the joint angles cross the limits.  

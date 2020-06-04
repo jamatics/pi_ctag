@@ -45,6 +45,12 @@ performing mobility tasks
 
 The current documentation may not be updated.
 
+Below is the brief list of structure:
+
+| Metric | Input | Expected units | Variable name | Format | Data Example | Input file | information MAP | Variable source |
+|-|-|-|-|-|-|-|-|-|
+| hrMonitoring | RR-interval | time (ms) | hrv | Double | 0.78,0.76,0.69,… | subject_xx_run_xx_hrv.csv | H10ChestStrip> prepProcess > inputFile | HR monitor |
+
 Octave algorithm to obtain RMSSD, SDNN, NN50 and pNN50 for human mobility 
 in the testbed.
 
