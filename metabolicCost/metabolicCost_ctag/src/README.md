@@ -110,6 +110,23 @@ opt1a: if user chooses 2. Other tasks then user must select one of the following
 
 The current documentation may not be updated.
 
+Brief overview is highlighted below:
+| Metric 	| Input 	| Expected units 	| Variable name 	| Format 	| Data Example 	| Input file 	| information MAP 	|
+|:-:	|:-:	|:-:	|:-:	|:-:	|:-:	|:-:	|:-:	|
+| Metabolic Cost 	| Case ID --> two main options: static body postures or dynamic body postures = 1 or 2 	| Number (no units) 	| opt1 	| String 	| 1 or 2 	| subject_xx_testbed_ID.yaml 	| userInput>input file 	|
+|  	| Case ID --> 1 --> three options: 1, 2 or 3<br>Case ID --> 2 --> 22 options 	| Number (no units) 	| opt1a 	| String 	| 1 to 22 	| subject_xx_testbed_ID.yaml 	| userinput>input_File 	|
+|  	| Heights 	| meters (m) 	| h1, h2 	| Double 	| 0.5, 0.7, … 	| subject_xx_testbed_ID.yaml 	| userinput>input_File 	|
+|  	| Grade of the walking surface 	| percenteage (%) 	| g 	| Double 	|                         5                         	| subject_xx_testbed_ID.yaml 	| userinput>input_File 	|
+|  	| Body weight 	| kg (kilograms) 	| bw 	| Double 	|                                                                                                                                                                                                                                                                                                                                                                                       75                                                                                                                                                                                                                                                                                                                                                                                      	| subject_xx_testbed_ID.yaml 	| userinput>input_File 	|
+|  	| Exo weight 	| kg (kilograms) 	| ExW 	| Double 	| 3.5 	| subject_xx_testbed_ID.yaml 	| userinput>input_File 	|
+|  	| Time 	| min (minutes) 	| t 	| Double 	| 0.5, 3, 59, 120 	| subject_xx_run_xx_chorno.csv 	| proximitySensor>TestEd> nodeRed >rawData_T_TestID_RunNumber_timestamp.csv> preProcess>input_File 	|
+|  	| Frequency 	| hertz (Hz) 	| freq 	| Double 	| 0.5, 1, 2, 10 ... 	| subject_xx_run_xx_chorno.csv 	| controller>TestEd> nodeRed >rawData_T_TestID_RunNumber_timestamp.csv> preProcess>Input_File 	|
+|  	| Force 	| kilogram (kg) 	| f 	| Double 	|                                                                                                    20                                                                                                   	| subject_xx_run_xx_metabolicCost.csv 	| loadCell>TestEd> nodeRed >rawData_T_TestID_RunNumber_timestamp.csv> preProcess>input_File 	|
+|  	| Horizontal movement of work piece in meters 	| meter (m) 	| x 	| Double 	| 0.1 	| subject_xx_run_xx_metabolicCost.csv 	| loadCell>TestEd> nodeRed >rawData_T_TestID_RunNumber_timestamp.csv> preProcess>input_File 	|
+|  	| Frequency 	| hertz (Hz) 	| LC_Freq 	| Double 	| 0.5, 1, 2, 10 ... 	| subject_xx_run_xx_metabolicCost.csv 	| TestEd> nodeRed >rawData_T_TestID_RunNumber_timestamp.csv> preProcess>input_File 	|
+|  	| Speed 	| meters per second (m/s) 	| v 	| Double 	| 1.38 	| subject_xx_run_xx_chrono.csv 	| proximitySensor>TestEd> nodeRed >rawData_T_TestID_RunNumber_timestamp.csv> preProcess>input_File 	|
+|  	| Frequency 	| hertz (Hz) 	| HR_Freq 	| Double 	| 0.5, 1, 2, 10 ... 	| subject_xx_run_xx_hrv.csv 	| Read CSV file > nodeRed > Metircs > Metabolic Cost 	|
+
 Octave algorithm to obtain the metabolic cost of the task during both static and
 dynamic tasks.
 First we calculate the time of completion of the task.
