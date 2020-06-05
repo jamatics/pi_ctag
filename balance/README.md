@@ -5,7 +5,7 @@
 Copyright CTAG 2020
 
 This is an example of Performance Indicator implemented in Octave.
-It is prepared to under TestEd project to be used within the Eurobench Benchmarking Software.
+It is prepared under TestEd project to be used within the Eurobench Benchmarking Software.
 
 ## Purposes
 
