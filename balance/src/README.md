@@ -57,8 +57,9 @@ meanDPSI: mean value of DPSI matrices.
 
 areaDPSI: sum of the values of DPSI matrices.
 
-DPSI_aEnergyVStime: This value is the areaDPSI value divided by the 
+areaDPSIvsTiime: This value is the areaDPSI value divided by the 
 time (25 seconds). This value is scaled in the next line: it is divided by 100.
+
 [Maxat, maxTime] [minat, minTime]: Matrices created to find the matching 
 time value of the maximum and minimum DPSI and time instance of maximum and
 minumum time.
@@ -71,7 +72,7 @@ Brief structure is listed below:
 
 | Metric | Input | Expected units | Variable name | Format | Data Example | Input file | information MAP |
 |-|-|-|-|-|-|-|-|
-| Balance | Ground Reaction Force | Newtons | reactForces | Double | 10.5, 34.6, .... | subject_xx_run_xx_balance.csv | portableMocap(CSIC) > preProcess > inputFile |
+| Balance | Ground Reaction Force | Newtons | reactForces | Double | 10.5, 34.6, .... | subject_xx_run_xx_balance.csv | portableForcePlate(CSIC) > preProcess > inputFile |
 
 
 Octave algorithm to obtain DPSI (max, min, min time instance, max time instance,

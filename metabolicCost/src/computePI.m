@@ -45,9 +45,9 @@ clc;
 format longG;
 fflush (stdout);
 
-csv_file = "../tests/data/input/subject_01_run_01_chrono.csv";
-testbed_file = "../tests/data/input/subject_01_testbed_lowAssist.yaml";
-result_dir = "../tests/data/output";
+%csv_file = "../tests/data/input/subject_01_run_01_chrono.csv";
+%testbed_file = "../tests/data/input/subject_01_testbed_lowAssist.yaml";
+%result_dir = "../tests/data/output";
 addpath("/home/jawad/Downloads/yamlMATLAB");
 
 disp(["Input parameters: ", csv_file, " ", result_dir])

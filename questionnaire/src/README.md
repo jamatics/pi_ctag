@@ -10,8 +10,7 @@ Follow the upper [Readme](../README.md) indications.
 ## Description
 
 ### Abstract
-This code developed in Octave demonstrates how to predict the metabolic rate 
-in kilocalories (kcal) of a human being performing different tasks.
+Octave algorithm to obtain the quantitative analysing in terms of usability, impact and utility. The questions are designed in to address these three criterion.
 
 The current entry point is [computePI.m](computePI.m).
 

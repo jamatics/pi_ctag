@@ -16,8 +16,7 @@ established joint limits.
 The current entry point is [computePI.m](computePI.m).
 
 ```octave
-computePI("[path_to]/subject_xx_run_xx_jointAngles.csv",
-"[path_to]/subject_xx_testbed_lowAssist.yaml", "[path_to]/")
+computePI("[path_to]/subject_xx_run_xx_jointAngles.csv", "[path_to]/")
 ```
 
 The two parameters are:
