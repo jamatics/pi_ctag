@@ -16,7 +16,7 @@ Posture Stability Index (DPSI) of the subject performing mobility tasks
 The current entry point is [computePI.m](computePI.m).
 
 ```octave
-computePI("[path_to]/subject_xx_run_xx_balance.csv", "[path_to]/subject_xx_testbed_lowAssist.yaml")
+computePI("[path_to]/subject_xx_run_xx_balance.csv", "[path_to]/subject_xx_testbed_lowAssist.yaml", "[path_to]/")
 ```
 
 The two parameters are:
