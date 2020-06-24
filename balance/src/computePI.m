@@ -38,7 +38,7 @@
     % ----------------------------------------------------------------------- %
 
 function result = computePI(csv_file, testbed_file, result_dir)
-clear;
+%clear;
 close all;
 clc;
 
@@ -69,10 +69,10 @@ l = length(reactForces);
 
 time = reactForces(1:l,1);
 reactForce_x_l = reactForces(1:l,2);
-reactForce_y_l = reactForces(1:l,3); 
+reactForce_y_l = reactForces(1:l,3);
 reactForce_z_l = reactForces(1:l,4);
-reactForce_x_r = reactForces(1:l,8); 
-reactForce_y_r = reactForces(1:l,9); 
+reactForce_x_r = reactForces(1:l,8);
+reactForce_y_r = reactForces(1:l,9);
 reactForce_z_r = reactForces(1:l,10);
 
 reactForce_x = (reactForce_x_l+reactForce_x_r)/2;
