@@ -104,7 +104,7 @@ maxat, maxTime/100, minat, minTime/100];
 % EB sop for saving the data to the output folders
 [filepath, name, ext] = fileparts(csv_file);
 
-filename = strcat(result_dir, "/", "Local_Score", ".yaml");
+filename = strcat(result_dir, "/", "pi_balance", ".yaml");
 store_vector(filename, totalResult);
 
 endfunction
