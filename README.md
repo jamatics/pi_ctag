@@ -4,15 +4,15 @@
 
 Copyright CTAG 2020
 
-This is an example of Performance Indicator implemented in Octave.
 It is prepared under TestEd project to be used within the Eurobench Benchmarking Software.
 
 ## Purposes
 
-Characterize the gait performances of a walking human subject (step length, step and stride time), based on the observed joint angles.
-More technical details provided within the code [README](src/README.md)
+**TO be detailed.**
 
 ## Installation
+
+**TO BE UPDATED**
 
 To enable the code under octave, additional packages are needed.
 
@@ -50,35 +50,67 @@ wget -O mapping-1.2.1.tar.gz https://octave.sourceforge.io/download.php?package=
 
 ## Usage
 
-The script `run_pi` launches this PI from the shell of a machine with octave installed.
-The permissions of this file must be changed in order to be executable:
+The repository gives access to a set of performance metrics.
 
-```console
-chmod 755 run_pi
+### Balance
+
+More detailed in [balance](balance/README.md).
+
+To compute the Dynamic Posture Stability Index (DPSI), assuming that the folder `out` is already created:
+
+```shell
+./run_pi_balance balance/tests/data/input/subject_01_run_01_balance.csv balance/tests/data/input/subject_01_testbed_lowAssist.yaml out
 ```
 
-Assuming folder `./test_data/input/` contains the input data, and that `./test_data/output` exists and will contain the resulting files, the shell command is:
+with:
 
-```console
-./run_pi ./test_data/input/subject_10_trial_01.csv ./test_data/input/subject_10_anthropometry.yaml ./test_data/output
-```
+* `subject_01_run_01_balance.csv`: a `csv` file containing the 3d ground reaction forces from left and right hand side force plate, assuming the first column is a timestamp in second.
 
-At this moment the script accepts two arguments (not less, not more).
+- `subject_01_testbed_lowAssist.yaml`: yaml file containing testbed configuration data related to the industrial use-case.
+
+### Borg scale
+
+**TO BE DETAILED**
+
+### chrono
+
+**TO BE DETAILED**
+
+### hrMonitoring
+
+**TO BE DETAILED**
+
+### metabolic cost
+
+**TO BE DETAILED**
+
+### questionnaire
+
+**TO BE DETAILED**
+
+### range of Motion
+
+**TO BE DETAILED**
 
 ## Build docker image
+
+**UNDER CONSTRUCTION**
 
 Run the following command in order to create the docker image for this PI:
 
 ```console
-docker build . -t pi_csic_docker_image
+docker build . -t pi_ctag
 ```
 
 ## Launch the docker image
 
+**UNDER CONSTRUCTION**
+
+
 Assuming the `test_data/input/` contains the input data, and that the directory `test_data/output/` is created, and will contain the PI output:
 
 ```shell
-docker run --rm -v $PWD/test_data/input:/in -v $PWD/test_data/output:/out pi_csic_docker_image ./run_pi /in/subject_10_trial_01.csv /in/subject_10_anthropometry.yaml /out
+docker run --rm -v $PWD/test_data/input:/in -v $PWD/test_data/output:/out pi_ctag ./run_pi_balance /in/subject_01_run_01_balance.csv /in/subject_01_testbed_lowAssist.yaml /out
 ```
 
 ## Acknowledgements
