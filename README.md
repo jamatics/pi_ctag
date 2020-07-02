@@ -70,6 +70,12 @@ with:
 
 ### Borg scale
 
+Assuming folder `outdir` exists:
+
+```shell
+../run_pi_borgScale10 borgScale10/tests/data/input/questionnaire_borgScale10.csv outdir
+```
+
 **TO BE DETAILED**
 
 ### chrono
