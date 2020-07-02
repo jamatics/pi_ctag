@@ -38,10 +38,6 @@
     % ----------------------------------------------------------------------- %
 
 function result = computePI(csv_file, result_dir)
-    
-clear; 
-close all;
-clc;
 
 %csv_file = '../tests/data/input/subject_01_questionnaire_borgScale10.csv';
 %result_dir = '../tests/data/output';
@@ -59,8 +55,6 @@ if isOctave
         disp('Using Matlab')
     end
 
-
-
 sqr = csv2cell(csv_file, ';');
 sumResult = sum(cell2mat(sqr(2:end,2)));
 
@@ -73,7 +67,7 @@ elseif (sumResult >= 17 && sumResult <= 32)
 elseif (sumResult >= 33 && sumResult <=48)
   localRes = ('Dreadful');
 elseif (sumResult >= 49 && sumResult <= 64)
-  localRes = ('Horrible');  
+  localRes = ('Horrible');
 elseif (sumResult >= 65)
   localRes = ('Agonizing');
 endif
@@ -93,7 +87,7 @@ totalResult = [localScore, neckScore, upperBackScore,shoulderScore, midBackScore
 
 [filepath, name, ext] = fileparts(csv_file);
 
-filename = strcat(result_dir, "/", "Local_Score", ".yaml");
+filename = strcat(result_dir, "/", "pi_borgscale10", ".yaml");
 store_vector(filename, totalResult);
 
 endfunction
