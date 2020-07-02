@@ -82,6 +82,12 @@ Assuming folder `outdir` exists:
 
 **TO BE DETAILED**
 
+Assuming folder `outdir` exists:
+
+```shell
+./run_pi_chrono chrono/tests/data/input/subject_01_run_01_chrono.csv outdir
+```
+
 ### hrMonitoring
 
 **TO BE DETAILED**
