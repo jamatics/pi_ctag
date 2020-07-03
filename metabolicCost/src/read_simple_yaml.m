@@ -13,7 +13,7 @@ function data = read_simple_yaml(filename)
     fid = fopen(filename);
 
     spec = "%s %s"; %spec = "%s %f";
-	
+
     infile = textscan(fid, spec, 'Delimiter', ':');
 
     labels = infile{1};
@@ -21,8 +21,10 @@ function data = read_simple_yaml(filename)
     [nitem misc] = size(labels);
 
     for i=1:nitem
-        label = labels{i};
-        data.(label) = values(i);
+        label = strtrim(labels{i});
+        if (length(label) != 0)
+            data.(label) = values(i);
+        end
     end
     fclose(fid);
 end
