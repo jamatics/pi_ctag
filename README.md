@@ -112,6 +112,12 @@ Assuming folder `outdir` exists:
 
 **TO BE DETAILED**
 
+Assuming folder `outdir` exists:
+
+```shell
+./run_pi_questionnaire questionnaire/tests/data/input/subject_01_questionnaire_medAssist.csv outdir
+```
+
 ### range of Motion
 
 **TO BE DETAILED**
