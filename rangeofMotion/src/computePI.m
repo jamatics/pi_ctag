@@ -38,9 +38,6 @@
     % ----------------------------------------------------------------------- %
 
 function result = computePI(csv_file, result_dir)
-clear; 
-close all;
-clc;
 
 %csv_file = "../tests/data/input/subject_03_run_01_jointAngles.csv";
 %result_dir = "../tests/data/output";
@@ -56,8 +53,8 @@ if isOctave
   pkg load io;
 else
   disp('Using Matlab')
-  endif
- 
+endif
+
 angles = csv2cell(csv_file, ',');
 header = angles(1, :);
 angles = cell2mat(angles(2:end, :));
@@ -67,13 +64,13 @@ joint_name = ["r_forearm/lumbar_x"];
 joint = cell2mat(cellstr(joint_name))
 joint_limits = [10, 140];
 [limit_position_r_forearm, counter_r_forearm, maxVal_r_forearm, ...
-minVal_r_forearm] = ... 
+minVal_r_forearm] = ...
 romCheck(header, angles, joint, joint_limits(1), joint_limits(2));
 
 joint_name = ["l_forearm/lumbar_x"];
 joint = cell2mat(cellstr(joint_name))
 joint_limits = [10, 140];
-[limit_position_l_forearm, counter_l_forearm, maxVal_l_forearm, ... 
+[limit_position_l_forearm, counter_l_forearm, maxVal_l_forearm, ...
 minVal_l_forearm] = ...
 romCheck(header, angles, joint, joint_limits(1), joint_limits(2));
 
@@ -138,10 +135,10 @@ counter_r_ankle_x, maxVal_r_ankle, minVal_r_ankle,...
 counter_l_ankle_x, maxVal_l_ankle, minVal_l_ankle]
 
 % EB sop for saving the data to the output folder
-% counter is producing erronious result require a thorough check in data 
+% counter is producing erronious result require a thorough check in data
 [filepath, name, ext] = fileparts(csv_file);
 
-filename = strcat(result_dir, "/", "Local_Score", ".yaml");
+filename = strcat(result_dir, "/", "pi_rangeofmotion", ".yaml");
 store_vector(filename, totalResult);
 
 endfunction
