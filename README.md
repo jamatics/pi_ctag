@@ -98,10 +98,15 @@ Assuming folder `outdir` exists:
 ./run_pi_hrMonitoring hrMonitoring/tests/data/input/subject_01_run_01_hrv.csv outdir
 ```
 
-
 ### metabolic cost
 
 **TO BE DETAILED**
+
+Assuming folder `outdir` exists:
+
+```shell
+./run_pi_metabolicCost metabolicCost/tests/data/input/subject_01_run_01_chrono.csv metabolicCost/tests/data/input/subject_01_testbed_lowAssist.yaml outdir
+```
 
 ### questionnaire
 

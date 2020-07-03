@@ -38,20 +38,17 @@
     % ----------------------------------------------------------------------- %
 
 function result = computePI(csv_file, testbed_file, result_dir)
- 
-clear; 
-close all;
-clc;
+
 format longG;
 fflush (stdout);
 
 %csv_file = "../tests/data/input/subject_01_run_01_chrono.csv";
 %testbed_file = "../tests/data/input/subject_01_testbed_lowAssist.yaml";
 %result_dir = "../tests/data/output";
-addpath("/home/jawad/Downloads/yamlMATLAB");
+%addpath("/home/jawad/Downloads/yamlMATLAB");
 
 disp(["Input parameters: ", csv_file, " ", result_dir])
-    isOctave = exist('OCTAVE_VERSION', 'builtin') ~= 0;
+isOctave = exist('OCTAVE_VERSION', 'builtin') ~= 0;
 
 if isOctave
   disp('Using Octave')
@@ -93,21 +90,21 @@ switch (opt1);
   case (1);
     [res1] = postureMaintain(bw,opt1a);
   case (2);
-    [res1] = otherTask(bw,s,l,h1,h2,f,x,v,g,t,opt1a)       
+    [res1] = otherTask(bw,s,l,h1,h2,f,x,v,g,t,opt1a)
 endswitch
 
 switch (opt2);
   case (1);
     [res2] = postureMaintain(bw,opt2a);
   case (2);
-    [res2] = otherTask(bw,s,l,h1,h2,f,x,v,g,t,opt2a)       
+    [res2] = otherTask(bw,s,l,h1,h2,f,x,v,g,t,opt2a)
 endswitch
 
 switch (opt3);
   case (1);
     [res3] = postureMaintain(bw,opt3a);
   case (2);
-    [res3] = otherTask(bw,s,l,h1,h2,f,x,v,g,t,opt3a)       
+    [res3] = otherTask(bw,s,l,h1,h2,f,x,v,g,t,opt3a)
 endswitch
 
 totalResult = [res1, res2, res3, res1+res2+res3];
@@ -116,7 +113,7 @@ totalResult = [res1, res2, res3, res1+res2+res3];
 % EB sop for saving the data to the output folders
 [filepath, name, ext] = fileparts(csv_file);
 
-filename = strcat(result_dir, "/", "Local_Score", ".yaml");
+filename = strcat(result_dir, "/", "pi_metaboliccost", ".yaml");
 store_vector(filename, totalResult);
 
 endfunction
