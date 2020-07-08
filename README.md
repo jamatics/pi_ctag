@@ -22,10 +22,8 @@ sudo apt-get install liboctave-dev
 
 Follow [these recommendations](https://octave.org/doc/v4.2.1/Installing-and-Removing-Packages.html) to make the installation of the additional packages needed:
 
-- [control](https://octave.sourceforge.io/control/index.html)
 - [signal](https://octave.sourceforge.io/signal/index.html)
 - [mapping](https://octave.sourceforge.io/mapping/index.html)
-- [io](https://octave.sourceforge.io/io/index.html)
 - [statistics](https://octave.sourceforge.io/statistics/index.html)
 
 Once octave is configured:
@@ -40,9 +38,7 @@ Note that all these installation steps can be run following the `RUN` command of
 
 ```shell
 sh ./install.sh
-wget -O control-3.2.0.tar.gz https://octave.sourceforge.io/download.php?package=control-3.2.0.tar.gz \
 wget -O statistics-1.4.1.tar.gz https://octave.sourceforge.io/download.php?package=statistics-1.4.1.tar.gz \
-wget -O io-2.4.12.tar.gz https://octave.sourceforge.io/download.php?package=io-2.4.12.tar.gz \
 wget -O signal-1.4.1.tar.gz https://octave.sourceforge.io/download.php?package=signal-1.4.1.tar.gz \
 wget -O mapping-1.2.1.tar.gz https://octave.sourceforge.io/download.php?package=mapping-1.2.1.tar.gz
 ./package_install.m
