@@ -73,7 +73,7 @@ with:
 Assuming folder `outdir` exists:
 
 ```shell
-../run_pi_borgScale10 borgScale10/tests/data/input/questionnaire_borgScale10.csv outdir
+./run_pi_borgScale10 borgScale10/tests/data/input/subject_01_questionnaire_borgScale10.csv outdir
 ```
 
 **TO BE DETAILED**
@@ -121,6 +121,13 @@ Assuming folder `outdir` exists:
 ### range of Motion
 
 **TO BE DETAILED**
+
+Assuming folder `outdir` exists:
+
+```shell
+./run_pi_rangeofMotion rangeofMotion/tests/data/input/subject_03_run_01_jointAngles.csv outdir
+```
+
 
 ## Build docker image
 
