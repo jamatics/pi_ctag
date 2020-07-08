@@ -6,7 +6,7 @@
     % H2020 Programme under TestEd FTP Eurobench.			      %
     %                                                                         %
     % Copyright (c) 2019-2020 CTAG and the authors                            %
-    % Author(s): Federico Macció  & Jawad Masood      	                      %
+    % Author(s): Erika Trivino & Jawad Masood      	                      %
     %                                                                         %
     % Licensed under the Apache License, Version 2.0 (the "License");         %
     % you may not use this file except in compliance with the License.        %
@@ -62,14 +62,14 @@ angles = cell2mat(angles(2:end, :));
 
 joint_name = ["r_forearm/lumbar_x"];
 joint = cell2mat(cellstr(joint_name))
-joint_limits = [10, 140];
+joint_limits = [-140, -10];
 [limit_position_r_forearm, counter_r_forearm, maxVal_r_forearm, ...
 minVal_r_forearm] = ...
 romCheck(header, angles, joint, joint_limits(1), joint_limits(2));
 
 joint_name = ["l_forearm/lumbar_x"];
 joint = cell2mat(cellstr(joint_name))
-joint_limits = [10, 140];
+joint_limits = [-140, -10];
 [limit_position_l_forearm, counter_l_forearm, maxVal_l_forearm, ...
 minVal_l_forearm] = ...
 romCheck(header, angles, joint, joint_limits(1), joint_limits(2));
