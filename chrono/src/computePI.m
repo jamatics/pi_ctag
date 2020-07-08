@@ -39,9 +39,6 @@
 
 function result = computePI(csv_file, result_dir)
 
-clear; 
-close all;
-clc;
 format longG;
 
 %csv_file = "../tests/data/input/subject_01_run_01_chrono.csv";
@@ -76,7 +73,7 @@ totalResult = [taskCompletionTime];
 
 [filepath, name, ext] = fileparts(csv_file);
 
-filename = strcat(result_dir, "/", "Local_Score", ".yaml");
+filename = strcat(result_dir, "/", "pi_chrono", ".yaml");
 store_scalar(filename, totalResult);
 
 endfunction

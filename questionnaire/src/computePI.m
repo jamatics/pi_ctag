@@ -39,9 +39,6 @@
 
 function result = computePI(csv_file, result_dir)
 
-clear; 
-close all;
-clc;
 
 %csv_file = '../tests/data/input/subject_01_questionnaire_medAssist.csv';
 %csv_file = '../tests/data/input/subject_xx_questionnaire_medAssist.csv';
@@ -53,18 +50,18 @@ clc;
     isOctave = exist('OCTAVE_VERSION', 'builtin') ~= 0;
 
 if isOctave
-        disp('Using Octave')
-        pkg load signal
-        pkg load mapping
-        pkg load statistics
-        pkg load io;
-    else
-        disp('Using Matlab')
-    end
+  disp('Using Octave')
+  pkg load signal
+  pkg load mapping
+  pkg load statistics
+  pkg load io;
+else
+  disp('Using Matlab')
+end
 
-    sqr = csv2cell(csv_file, ';');
+sqr = csv2cell(csv_file, ';');
 
-% To detect the correct assistance level from file name  
+% To detect the correct assistance level from file name
 [filepath, name, ext] = fileparts(csv_file);
 indices = strfind(name, '_');
 str = {"lowAssist","medAssist","highAssist","noAssist"};
@@ -98,7 +95,7 @@ totalResult = [usability, utility, impact];
 % EB sop for saving the data to the output folder
 [filepath, name, ext] = fileparts(csv_file);
 
-    filename = strcat(result_dir, "/", "Local_Score", ".yaml");
+    filename = strcat(result_dir, "/", "pi_questionnaire", ".yaml");
     store_vector(filename, totalResult);
 
 % Tested with low assist and medium assist. Require verification for high ...

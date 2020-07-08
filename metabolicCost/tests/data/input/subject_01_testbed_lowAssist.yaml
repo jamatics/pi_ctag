@@ -3,19 +3,16 @@ gender: 1
 assitance_level: 5
 number_runs: 1
 number_subjects: 1
-force: 20 
-height1: 1 
+force: 20
+height1: 1
 height2: 1.6
-load: 10 
-velocity: 1.38 
+load: 10
+velocity: 1.38
 horizontalMovement: 0.1
-slope: 5 
+slope: 5
 mainOption1: 1
 subOption1: 2
 mainOption2: 2
-subOption2: 10 
+subOption2: 10
 mainOption3: 2
-subOption3: 15  
- 
-
-
+subOption3: 15

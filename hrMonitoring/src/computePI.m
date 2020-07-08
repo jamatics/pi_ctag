@@ -39,12 +39,8 @@
 
 function result = computePI(csv_file, result_dir)
 
-clear; 
-close all;
-clc;
-
-csv_file = "../tests/data/input/subject_01_run_01_hrv.csv";
-result_dir = "../tests/data/output";
+%csv_file = "../tests/data/input/subject_01_run_01_hrv.csv";
+%result_dir = "../tests/data/output";
 
 disp(["Input parameters: ", csv_file, " ", result_dir])
     isOctave = exist('OCTAVE_VERSION', 'builtin') ~= 0;
@@ -63,7 +59,7 @@ hrv = csv2cell(csv_file, ',');
 hrv = cell2mat(hrv(1:end,:));
 
 
-RMSSD = sqrt(mean(diff(hrv).*diff(hrv)));  
+RMSSD = sqrt(mean(diff(hrv).*diff(hrv)));
 
 SDNN = std(hrv);
 
@@ -80,7 +76,7 @@ totalResult = [RMSSD, SDNN, NN50, pNN50];
 % EB sop for saving the data to the output folders
 [filepath, name, ext] = fileparts(csv_file);
 
-filename = strcat(result_dir, "/", "Local_Score", ".yaml");
+filename = strcat(result_dir, "/", "pi_hrmonitoring", ".yaml");
 store_vector(filename, totalResult);
 
 endfunction
