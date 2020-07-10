@@ -19,7 +19,7 @@ function is_ok = store_vector(filename, data)
             value_str = sprintf("%s, ", value_str);
         endif
     endfor
-    value_str = sprintf("%s]", value_str);
+    value_str = sprintf("%s]\n", value_str);
     fprintf(file_id, value_str);
     fclose(file_id);
     is_ok = true;
