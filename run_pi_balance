@@ -2,6 +2,8 @@
 
 printf ("current directory: %s\n", pwd())
 addpath("balance/src")
+addpath("tools/src")
+
 arg_list = argv ();
 if nargin != 3
   printf ("ERROR: There should be 3 args. A .csv file containing the experiment data, a .yaml file containing the testbed data and the dir where the results will be stored\n");
