@@ -55,22 +55,26 @@ More detailed in [balance](balance/README.md).
 To compute the Dynamic Posture Stability Index (DPSI), assuming that the folder `out` is already created:
 
 ```shell
-./run_pi_balance balance/tests/data/input/subject_01_run_01_balance.csv balance/tests/data/input/subject_01_testbed_lowAssist.yaml out
+./run_pi_balance testdata/input/balance.csv testdata/input/testbed_lowAssist.yaml out
 ```
 
 with:
 
-* `subject_01_run_01_balance.csv`: a `csv` file containing the 3d ground reaction forces from left and right hand side force plate, assuming the first column is a timestamp in second.
+* `balance.csv`: a `csv` file containing the 3d ground reaction forces from left and right hand side force plate, assuming the first column is a timestamp in second.
 
-- `subject_01_testbed_lowAssist.yaml`: yaml file containing testbed configuration data related to the industrial use-case.
+- `testbed_lowAssist.yaml`: yaml file containing testbed configuration data related to the industrial use-case.
 
 ### Borg scale
 
 Assuming folder `outdir` exists:
 
 ```shell
-./run_pi_borgScale10 borgScale10/tests/data/input/subject_01_questionnaire_borgScale10.csv outdir
+./run_pi_borgScale10 testdata/input/questionnaire_borgScale10.csv outdir
 ```
+
+with:
+
+* `questionnaire_borgScale10.csv`: _to be described_
 
 **TO BE DETAILED**
 
@@ -81,8 +85,13 @@ Assuming folder `outdir` exists:
 Assuming folder `outdir` exists:
 
 ```shell
-./run_pi_chrono chrono/tests/data/input/subject_01_run_01_chrono.csv outdir
+./run_pi_chrono testdata/input/chrono.csv outdir
 ```
+
+with:
+
+* `chrono.csv`: _to be defined_
+
 
 ### hrMonitoring
 
@@ -91,7 +100,7 @@ Assuming folder `outdir` exists:
 Assuming folder `outdir` exists:
 
 ```shell
-./run_pi_hrMonitoring hrMonitoring/tests/data/input/subject_01_run_01_hrv.csv outdir
+./run_pi_hrMonitoring testdata/input/hrv.csv outdir
 ```
 
 ### metabolic cost
@@ -101,7 +110,7 @@ Assuming folder `outdir` exists:
 Assuming folder `outdir` exists:
 
 ```shell
-./run_pi_metabolicCost metabolicCost/tests/data/input/subject_01_run_01_chrono.csv metabolicCost/tests/data/input/subject_01_testbed_lowAssist.yaml outdir
+./run_pi_metabolicCost testdata/input/chrono.csv testdata/input/testbed_lowAssist_metaboliccost.yaml outdir
 ```
 
 ### questionnaire
@@ -111,7 +120,7 @@ Assuming folder `outdir` exists:
 Assuming folder `outdir` exists:
 
 ```shell
-./run_pi_questionnaire questionnaire/tests/data/input/subject_01_questionnaire_medAssist.csv outdir
+./run_pi_questionnaire testdata/input/questionnaire_medAssist.csv outdir
 ```
 
 ### range of Motion
@@ -121,7 +130,7 @@ Assuming folder `outdir` exists:
 Assuming folder `outdir` exists:
 
 ```shell
-./run_pi_rangeofMotion rangeofMotion/tests/data/input/subject_03_run_01_jointAngles.csv outdir
+./run_pi_rangeofMotion testdata/input/jointAngles.csv outdir
 ```
 
 

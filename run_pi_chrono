@@ -1,7 +1,9 @@
 #!/usr/bin/octave -qf
 
-printf ("current directory: %s\n", pwd())
-addpath("chrono/src")
+printf ("current directory: %s\n", pwd());
+addpath("chrono/src");
+addpath("tools/src");
+
 arg_list = argv ();
 if nargin != 2
   printf ("ERROR: There should be 2 args. A .csv file containing the experiment data and the dir where the results will be stored\n");
@@ -13,4 +15,4 @@ endif
 printf ("chrono file: %s\n", arg_list{1});
 printf ("result dir: %s\n", arg_list{2});
 
-computePI(arg_list{1}, arg_list{2})
+computePI(arg_list{1}, arg_list{2});

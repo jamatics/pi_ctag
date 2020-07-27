@@ -64,7 +64,7 @@ reactForces = csv2cell(csv_file, ',');
 reactForces = cell2mat(reactForces(1:end,:));
 
 testbed_data = read_simple_yaml(testbed_file);
-BWs1 = testbed_data.subject_weight;
+BWs1 = str2double(testbed_data.subject_weight);
 l = length(reactForces);
 
 time = reactForces(1:l,1);
