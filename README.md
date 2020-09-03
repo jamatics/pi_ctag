@@ -156,7 +156,6 @@ docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_
 docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_questionnaire /in/questionnaire_medAssist.csv /out
 docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_rangeofMotion /in/jointAngles.csv /out
 
-
 ```
 
 ## Acknowledgements
