@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <test_plan>
 <test pi_name="./run_pi_balance"
-      parameters="/in/wrench_CrutchLeft.csv /in/balance.csv /in/testbed_lowAssist.yaml /out"
+      parameters="/in/balance.csv /in/testbed_lowAssist.yaml /out"
       input_folder="input"
       output_folder="output/balance"/>
 <test pi_name="./run_pi_borgScale10"
-      parameters="in/questionnaire_borgScale10.csv /out"
+      parameters="/in/questionnaire_borgScale10.csv /out"
       input_folder="input"
       output_folder="output/borgscale10"/>
 <test pi_name="./run_pi_chrono"
