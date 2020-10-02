@@ -92,7 +92,6 @@ with:
 
 * `chrono.csv`: _to be defined_
 
-
 ### hrMonitoring
 
 **TO BE DETAILED**
@@ -133,10 +132,9 @@ Assuming folder `outdir` exists:
 ./run_pi_rangeofMotion testdata/input/jointAngles.csv outdir
 ```
 
-
 ## Build docker image
 
-**UNDER CONSTRUCTION**
+_tested under linux_
 
 Run the following command in order to create the docker image for this PI:
 
@@ -146,13 +144,18 @@ docker build . -t pi_ctag
 
 ## Launch the docker image
 
-**UNDER CONSTRUCTION**
-
-
-Assuming the `test_data/input/` contains the input data, and that the directory `test_data/output/` is created, and will contain the PI output:
+Assuming the `testdata/input/` contains the input data, and that the directory `test_data/output/` is created, and will contain the PI output:
 
 ```shell
-docker run --rm -v $PWD/test_data/input:/in -v $PWD/test_data/output:/out pi_ctag ./run_pi_balance /in/subject_01_run_01_balance.csv /in/subject_01_testbed_lowAssist.yaml /out
+
+docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_balance /in/balance.csv /in/testbed_lowAssist.yaml /out
+docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_borgScale10 /in/questionnaire_borgScale10.csv /out
+docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_chrono /in/chrono.csv /out
+docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_hrMonitoring /in/hrv.csv /out
+docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_metabolicCost /in/chrono.csv /in/testbed_lowAssist_metaboliccost.yaml /out
+docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_questionnaire /in/questionnaire_medAssist.csv /out
+docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_rangeofMotion /in/jointAngles.csv /out
+
 ```
 
 ## Acknowledgements
