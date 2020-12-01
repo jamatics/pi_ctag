@@ -52,15 +52,15 @@ The repository gives access to a set of performance metrics.
 
 More detailed in [balance](balance/README.md).
 
-To compute the Dynamic Posture Stability Index (DPSI), assuming that the folder `out` is already created:
+To compute the Dynamic Posture Stability Index (DPSI), assuming that the folder `outdir` is already created:
 
 ```shell
-./run_pi_balance testdata/input/balance.csv testdata/input/testbed_lowAssist.yaml out
+./run_pi_balance testdata/input/balance.csv testdata/input/testbed_lowAssist.yaml outdir
 ```
 
 with:
 
-* `balance.csv`: a `csv` file containing the 3d ground reaction forces from left and right hand side force plate, assuming the first column is a timestamp in second.
+- `balance.csv`: a `csv` file containing the 3d ground reaction forces from left and right hand side force plate, assuming the first column is a timestamp in second.
 
 - `testbed_lowAssist.yaml`: yaml file containing testbed configuration data related to the industrial use-case.
 
@@ -74,7 +74,7 @@ Assuming folder `outdir` exists:
 
 with:
 
-* `questionnaire_borgScale10.csv`: _to be described_
+- `questionnaire_borgScale10.csv`: _to be described_
 
 **TO BE DETAILED**
 
@@ -90,7 +90,7 @@ Assuming folder `outdir` exists:
 
 with:
 
-* `chrono.csv`: _to be defined_
+- `chrono.csv`: _to be defined_
 
 ### hrMonitoring
 

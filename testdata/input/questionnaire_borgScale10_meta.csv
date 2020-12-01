@@ -1,9 +1,9 @@
 ﻿itemID;type;options;text;answerUnit
-1;likert;[0 10] = ["None","Annoying","Annoying","Unconfortable","Unconfortable","Dreadful","Dreadful","Horrible","Horrible","Agonizing","Agonizing"];Neck;number;
-2;likert;[0 10] = ["None","Annoying","Annoying","Unconfortable","Unconfortable","Dreadful","Dreadful","Horrible","Horrible","Agonizing","Agonizing"];Upper back;number;
-3;likert;[0 10] = ["None","Annoying","Annoying","Unconfortable","Unconfortable","Dreadful","Dreadful","Horrible","Horrible","Agonizing","Agonizing"];Shoulders;number;
-4;likert;[0 10] = ["None","Annoying","Annoying","Unconfortable","Unconfortable","Dreadful","Dreadful","Horrible","Horrible","Agonizing","Agonizing"];Mid back;number;
-5;likert;[0 10] = ["None","Annoying","Annoying","Unconfortable","Unconfortable","Dreadful","Dreadful","Horrible","Horrible","Agonizing","Agonizing"];Elbow;number;
-6;likert;[0 10] = ["None","Annoying","Annoying","Unconfortable","Unconfortable","Dreadful","Dreadful","Horrible","Horrible","Agonizing","Agonizing"];Low back;number;
-7;likert;[0 10] = ["None","Annoying","Annoying","Unconfortable","Unconfortable","Dreadful","Dreadful","Horrible","Horrible","Agonizing","Agonizing"];Wrists/Hands;number;
-8;likert;[0 10] = ["None","Annoying","Annoying","Unconfortable","Unconfortable","Dreadful","Dreadful","Horrible","Horrible","Agonizing","Agonizing"];Buttocks/Hips/Thighs;number;
+1;likert;[0 10] = ["None","Annoying","Annoying","Unconfortable","Unconfortable","Dreadful","Dreadful","Horrible","Horrible","Agonizing","Agonizing"];Neck;number
+2;likert;[0 10] = ["None","Annoying","Annoying","Unconfortable","Unconfortable","Dreadful","Dreadful","Horrible","Horrible","Agonizing","Agonizing"];Upper back;number
+3;likert;[0 10] = ["None","Annoying","Annoying","Unconfortable","Unconfortable","Dreadful","Dreadful","Horrible","Horrible","Agonizing","Agonizing"];Shoulders;number
+4;likert;[0 10] = ["None","Annoying","Annoying","Unconfortable","Unconfortable","Dreadful","Dreadful","Horrible","Horrible","Agonizing","Agonizing"];Mid back;number
+5;likert;[0 10] = ["None","Annoying","Annoying","Unconfortable","Unconfortable","Dreadful","Dreadful","Horrible","Horrible","Agonizing","Agonizing"];Elbow;number
+6;likert;[0 10] = ["None","Annoying","Annoying","Unconfortable","Unconfortable","Dreadful","Dreadful","Horrible","Horrible","Agonizing","Agonizing"];Low back;number
+7;likert;[0 10] = ["None","Annoying","Annoying","Unconfortable","Unconfortable","Dreadful","Dreadful","Horrible","Horrible","Agonizing","Agonizing"];Wrists/Hands;number
+8;likert;[0 10] = ["None","Annoying","Annoying","Unconfortable","Unconfortable","Dreadful","Dreadful","Horrible","Horrible","Agonizing","Agonizing"];Buttocks/Hips/Thighs;number
