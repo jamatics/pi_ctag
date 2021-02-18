@@ -37,13 +37,13 @@
     % reports.                                                                %
     % ----------------------------------------------------------------------- %
 
-function result = computePI(csv_file, testbed_file, result_dir)
+function result = computePI(csv_file, subject_file, result_dir)
 %clear;
 close all;
 clc;
 
 %csv_file = "../tests/data/input/subject_01_run_01_balance.csv";
-%testbed_file = "../tests/data/input/subject_01_testbed_lowAssist.yaml";
+%subject_file = "../tests/data/input/subject_01_testbed_lowAssist.yaml";
 %result_dir = "../tests/data/output";
 
 disp(["Input parameters: ", csv_file, " ", result_dir])
@@ -60,20 +60,20 @@ else
   endif
 
 reactForces = csv2cell(csv_file, ',');
-%header = reactForces(1, :);
-reactForces = cell2mat(reactForces(1:end,:));
+header = reactForces(1, :);
+reactForces = cell2mat(reactForces(2:end,:));
 
-testbed_data = read_simple_yaml(testbed_file);
-BWs1 = str2double(testbed_data.subject_weight);
+subject_data = read_simple_yaml(subject_file);
+BWs1 = str2double(subject_data.subject_weight);
 l = length(reactForces);
 
-time = reactForces(1:l,1);
-reactForce_x_l = reactForces(1:l,2);
-reactForce_y_l = reactForces(1:l,3);
-reactForce_z_l = reactForces(1:l,4);
-reactForce_x_r = reactForces(1:l,8);
-reactForce_y_r = reactForces(1:l,9);
-reactForce_z_r = reactForces(1:l,10);
+time = reactForces(2:l,1);
+reactForce_x_l = reactForces(2:l,2);
+reactForce_y_l = reactForces(2:l,3);
+reactForce_z_l = reactForces(2:l,4);
+reactForce_x_r = reactForces(2:l,8);
+reactForce_y_r = reactForces(2:l,9);
+reactForce_z_r = reactForces(2:l,10);
 
 reactForce_x = (reactForce_x_l+reactForce_x_r)/2;
 reactForce_y = (reactForce_y_l+reactForce_y_r)/2;
