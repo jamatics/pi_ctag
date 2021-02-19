@@ -1,0 +1,10 @@
+assitance_level: 1
+number_runs: 10
+number_subjects: 3
+force: 20
+height1: 1
+height2: 1.6
+load: 10
+velocity: 1.38
+horizontalMovement: 0.1
+slope: 5

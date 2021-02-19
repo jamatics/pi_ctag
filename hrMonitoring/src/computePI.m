@@ -55,8 +55,9 @@ else
   disp('Using Matlab')
   endif
 
-hrv = csv2cell(csv_file, ',');
-hrv = cell2mat(hrv(1:end,:));
+hrv0 = csv2cell(csv_file, ',');
+hrv0 = cell2mat(hrv0(2:end,:));
+hrv = hrv0.*1000;
 
 
 RMSSD = sqrt(mean(diff(hrv).*diff(hrv)));
