@@ -57,7 +57,27 @@ if isOctave
   pkg load io;
 else
   disp('Using Matlab')
-  endif
+endif
+
+is_ok = true;
+if ~exist(csv_file, 'file')
+  disp(["input csv file missing: ", csv_file])
+  is_ok = false;
+endif
+if ~exist(subject_file, 'file')
+  disp(["input subject file missing: ", subject_file])
+  is_ok = false;
+endif
+
+if ~exist(result_dir, 'dir')
+  disp(["output folder missing: ", result_dir])
+  is_ok = false;
+endif
+
+if ~is_ok
+  display("some input parameters are invalid. Quitting")
+  return
+endif
 
 reactForces = csv2cell(csv_file, ',');
 header = reactForces(1, :);
