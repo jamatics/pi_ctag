@@ -5,15 +5,17 @@ addpath("metabolicCost/src");
 addpath("tools/src");
 
 arg_list = argv ();
-if nargin != 3
-  printf ("ERROR: There should be 3 args. A .csv file containing the experiment data, a .yaml file containing the testbed data and the dir where the results will be stored\n");
+if nargin != 5
+  printf ("ERROR: There should be 5 args. A .csv file containing the experiment data, a .yaml file containing the subject data, a .yaml file containing the test conditions, a .yaml file containing the metabolic cost options and the dir where the results will be stored\n");
   printf ("Usage:\n");
-  printf ("\t./pi_run_metabolicCost chrono.csv testbed.yaml result_dir\n\n");
+  printf ("\t./pi_run_metabolicCost chrono.csv subject_01_info.yaml  condition.yaml subject_01_choice_metabolicCost.yaml result_dir\n\n");
   exit(127);
 endif
 
 printf ("chrono file: %s\n", arg_list{1});
-printf ("testbed file: %s\n", arg_list{2});
-printf ("result dir: %s\n", arg_list{3});
+printf ("subject file: %s\n", arg_list{2});
+printf ("condition file: %s\n", arg_list{3});
+printf ("choice file: %s\n", arg_list{4});
+printf ("result dir: %s\n", arg_list{5});
 
-computePI(arg_list{1}, arg_list{2}, arg_list{3});
+computePI(arg_list{1}, arg_list{2}, arg_list{3}, arg_list{4}, arg_list{5});

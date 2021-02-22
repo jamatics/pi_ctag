@@ -37,7 +37,7 @@
     % reports.                                                                %
     % ----------------------------------------------------------------------- %
 
-function result = computePI(csv_file, testbed_file, result_dir)
+function result = computePI(csv_file, subject_file, condition_file, choice_file, result_dir)
 
 format longG;
 fflush (stdout);
@@ -60,9 +60,11 @@ else
   disp('Using Matlab')
 endif
 
-testbed_data = read_simple_yaml(testbed_file);
-bw = str2double(cell2mat(testbed_data.subject_weight(1,1)));
-s = str2double(cell2mat(testbed_data.gender(1,1)));
+subject_info = read_simple_yaml(subject_file)
+testbed_data = read_simple_yaml(condition_file);
+choice_data = read_simple_yaml(choice_file);
+bw = str2double(cell2mat(subject_info.subject_weight(1,1)));
+s = str2double(cell2mat(subject_info.gender(1,1)));
 l = str2double(cell2mat(testbed_data.load(1,1)));
 h1 = str2double(cell2mat(testbed_data.height1(1,1)));
 h2 = str2double(cell2mat(testbed_data.height2(1,1)));
@@ -71,12 +73,12 @@ v = str2double(cell2mat(testbed_data.velocity(1,1)));
 x = str2double(cell2mat(testbed_data.horizontalMovement(1,1)));
 g = str2double(cell2mat(testbed_data.slope(1,1)));
 % Task and sub-task
-opt1 = str2double(cell2mat(testbed_data.mainOption1(1,1)));
-opt1a = str2double(cell2mat(testbed_data.subOption1(1,1)));
-opt2 = str2double(cell2mat(testbed_data.mainOption2(1,1)));
-opt2a = str2double(cell2mat(testbed_data.subOption2(1,1)));
-opt3 = str2double(cell2mat(testbed_data.mainOption3(1,1)));
-opt3a = str2double(cell2mat(testbed_data.subOption3(1,1)));
+opt1 = str2double(cell2mat(choice_data.mainOption1(1,1)));
+opt1a = str2double(cell2mat(choice_data.subOption1(1,1)));
+opt2 = str2double(cell2mat(choice_data.mainOption2(1,1)));
+opt2a = str2double(cell2mat(choice_data.subOption2(1,1)));
+opt3 = str2double(cell2mat(choice_data.mainOption3(1,1)));
+opt3a = str2double(cell2mat(choice_data.subOption3(1,1)));
 
 rawData = csv2cell(csv_file, ',');
 header = rawData(1, :);
