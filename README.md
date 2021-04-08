@@ -124,7 +124,7 @@ with:
 
 - `condition.yaml`: yaml file containing testbed configuration data related to the industrial use-case.
 
-- `subject_xx_metabolicCost.yaml`: yaml file containing the user choices for the algorithm.
+- `subject_xx_choice_metabolicCost.yaml`: yaml file containing the user choices for the algorithm.
 
 ### questionnaire
 
@@ -170,11 +170,11 @@ Assuming the `testdata/input/` contains the input data, and that the directory `
 
 ```shell
 
-docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_balance /in/balance.csv /in/testbed_lowAssist.yaml /out
+docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_balance /in/balance.csv /in/subject_01_info.yaml /out
 docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_borgScale10 /in/questionnaire_borgScale10.csv /out
 docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_chrono /in/chrono.csv /out
 docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_hrMonitoring /in/hrv.csv /out
-docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_metabolicCost /in/chrono.csv /in/testbed_lowAssist_metaboliccost.yaml /out
+docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_metabolicCost /in/chrono.csv /in/subject_01_info.yaml /in/condition.yaml /in/subject_01_choice_metabolicCost.yaml /out
 docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_questionnaire /in/questionnaire_medAssist.csv /out
 docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_rangeofMotion /in/jointAngles.csv /out
 

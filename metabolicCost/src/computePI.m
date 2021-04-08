@@ -42,9 +42,11 @@ function result = computePI(csv_file, subject_file, condition_file, choice_file,
 format longG;
 fflush (stdout);
 
-%csv_file = "../tests/data/input/subject_01_run_01_chrono.csv";
-%testbed_file = "../tests/data/input/subject_01_testbed_lowAssist.yaml";
-%result_dir = "../tests/data/output";
+%csv_file = "~/testdata/input/chrono.csv";
+%subject_file = "~/testdata/input/subject_01_info.yaml";
+%testbed_configuration_file = "~/testdata/input/condition.yaml";
+%test_choice = "~/testdata/input/subject_01_choice_metaboliCost.yaml";
+%result_dir = "~/testdata/output";
 %addpath("/home/jawad/Downloads/yamlMATLAB");
 
 disp(["Input parameters: ", csv_file, " ", result_dir])

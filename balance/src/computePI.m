@@ -43,7 +43,7 @@ close all;
 clc;
 
 %csv_file = "../tests/data/input/subject_01_run_01_balance.csv";
-%subject_file = "../tests/data/input/subject_01_testbed_lowAssist.yaml";
+%subject_file = "../tests/data/input/subject_01_info.yaml";
 %result_dir = "../tests/data/output";
 
 disp(["Input parameters: ", csv_file, " ", result_dir])

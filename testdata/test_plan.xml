@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <test_plan>
 <test pi_name="./run_pi_balance"
-      parameters="/in/balance.csv /in/testbed_lowAssist.yaml /out"
+      parameters="/in/balance.csv /in/subject_01_info.yaml /out"
       input_folder="input"
       output_folder="output/balance"/>
 <test pi_name="./run_pi_borgScale10"
@@ -17,7 +17,7 @@
       input_folder="input"
       output_folder="output/hrMonitoring"/>
 <test pi_name="./run_pi_metabolicCost"
-      parameters="/in/chrono.csv /in/testbed_lowAssist_metaboliccost.yaml /out"
+      parameters="/in/chrono.csv /in/subject_01_info.yaml /in/condition.yaml /in/subject_01_choice_metabolicCost.yaml /out"
       input_folder="input"
       output_folder="output/metaboliccost"/>
 <test pi_name="./run_pi_questionnaire"
