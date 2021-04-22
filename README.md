@@ -180,6 +180,39 @@ docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_
 
 ```
 
+## Conversion of raw data into pre-processed format
+
+_to be adjusted_
+
+This folder consists of two sub-folders: 1. rawData and 2. input.
+The rawData folder consists of seven sub-folders which must be populated with the data files based on the data population sequence mentioned in the filename of the folder. The filename also contains the data source.
+
+Procedure
+
+1. Copy the raw data in the respective folder on the basis of the instructions present in the folder name. For example: balance_EB_runWise = PI_source_populationSequence. Please note that all the files in the rawData folder are in original form except balance and rangeofMotion folder files which are dependent on the EB facilities.
+2. Change the file name and heading to complaint with Eurobench (EB) Documentation (this step can be performed manually or automated with the help of bash scripts.). Following are the files and corresponding preprocessing required for EB ready:
+
+I. balance_EB_runWise/S1R1.txt -> Received from the EB force plate -> concert to csv format-> renaming to "subject_X_cond_Y_run_Z_balance.csv" -> Inserting header at the top of the file to"timestamp,left_force_x,left_force_y,left_force_z,left_torque_x,left_torque_y,left_torque_z,right_force_x,right_force_y,right_force_z right_torque_x,right_torque_y,right_torque_z" -> Copy the preprocessed file to EB input folder.
+
+II. borgScale10_TestEd_testSessionWise/questionnaire_borgScale10.csv -> Received from the TestEd application -> renaming to "subject_X_cond_Y_run_Z_questionnaire_borgScale10.csv"-> Copy the preprocessed file to EB input folder.
+
+III. chrono_TestEd_runWise/rawData_testID_RunNumber_Date_StartTime.csv -> Received from the TestEd application -> renaming to "subject_X_cond_Y_run_Z_chrono.csv" -> Copy the preprocessed file to EB input folder.
+
+IV. hrMonitoring_PolarH10_runWise/date time.txt -> downloaded from the polar mobile application -> convert to the csv format -> Inserting header at the top of the file to "hrv" -> renaming to "subject_X_cond_Y_run_Z_hrv.csv" -> Copy the preprocessed file to EB input folder.
+
+V. questionnaire_TestEd_testSessionWise/questionnaireX_narrow_run.csv -> Received from the TestEd application -> renaming to "subject_X_cond_Y_run_Z_questionnaire_ABC.csv"-> Copy the preprocessed file to EB input folder.
+
+VI. rangeofMotion_EB_runWise/jointAngle.csv/txt -> Received from the EB force plate -> concert file to csv format-> renaming to "subject_X_cond_Y_run_Z_jointAngle.csv" -> Inserting header at the top of the file to "timestamp,r_hip_z,r_hip_x,r_hip_y,r_knee_z,r_knee_x,r_knee_y,r_ankle_z,r_ankle_x,r_ankle_y,l_hip_z,l_hip_x,l_hip_y,l_knee_z,l_knee_x,l_knee_y,l_ankle_z,l_ankle_x,l_ankle_y,pelvis_z,pelvis_x,pelvis_y,r_forearm,
+lumbar_z,r_forearm/lumbar_x,r_forearm/lumbar_y,l_forearm/lumbar_z,l_forearm/lumbar_x,l_forearm/lumbar_y" -> Copy the preprocessed file to EB input folder.
+
+VII. input/subject_X_info.yaml -> Populate or create subjectwise with "subject_weight: X and gender: Y".
+
+VIII. input/condition_X.yaml -> Populate or create testbed conditions by inserting "assitance_level, number_runs, number_subjects, force, height1, height2, load, velocity, horizontalMovement, slope" (for details see the Git hub documentation).
+
+XI. input/subject_X_cond_Y_choice_metabolicCost.yaml -> Populate or create this file for the subjective choice relevant to the testbed testing condition by inserting "mainOption1, subOption1, mainOption2, subOption2, mainOption3, subOption3" (for details see the Git hub documentation)
+
+
+
 ## Acknowledgements
 
 <a href="http://eurobench2020.eu">
