@@ -45,7 +45,7 @@ jobs:
       - name: test the Docker image
         env:
           DOCKER_IMAGE: eurobenchtest/${{ github.event.repository.name }}:${{ steps.get_version.outputs.version }}
-          TEST_PLAN: tests/test_plan.xml
+          TEST_PLAN: testdata/test_plan.xml
         run: python3 test_docker_call.py
       - name: Push to Docker hub
         env:
