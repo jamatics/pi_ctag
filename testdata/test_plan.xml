@@ -17,7 +17,7 @@
       input_folder="input"
       output_folder="output/hrMonitoring"/>
 <test pi_name="./run_pi_metabolicCost"
-      parameters="/in/chrono.csv /in/subject_01_info.yaml /in/condition.yaml /in/subject_01_choice_metabolicCost.yaml /out"
+      parameters="/in/chrono.csv /in/subject_01_info.yaml /in/condition.yaml /in/subject_01_cond_01_choice_metabolicCost.yaml /out"
       input_folder="input"
       output_folder="output/metaboliccost"/>
 <test pi_name="./run_pi_questionnaire"
