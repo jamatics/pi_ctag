@@ -113,7 +113,7 @@ More detailed in [metabolicCost](metabolicCost/README.md).
 Assuming folder `outdir` exists:
 
 ```shell
-./run_pi_metabolicCost testdata/input/chrono.csv testdata/input/subject_xx_info.yaml testdata/input/condition_yy.yaml testdata/input/subject_xx__cond_yy_choice_metabolicCost.yaml outdir
+./run_pi_metabolicCost testdata/input/chrono.csv testdata/input/subject_xx_info.yaml testdata/input/condition_yy.yaml testdata/input/subject_xx__condition_yy_choice_metabolicCost.yaml outdir
 ```
 
 with:
@@ -124,7 +124,7 @@ with:
 
 - `condition_yy.yaml`: yaml file containing testbed configuration data related to the industrial use-case.
 
-- `subject_xx_cond_yy_choice_metabolicCost.yaml`: yaml file containing the user choices for the algorithm.
+- `subject_xx_condition_yy_choice_metabolicCost.yaml`: yaml file containing the user choices for the algorithm.
 
 ### questionnaire
 
@@ -174,7 +174,7 @@ docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_
 docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_borgScale10 /in/questionnaire_borgScale10.csv /out
 docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_chrono /in/chrono.csv /out
 docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_hrMonitoring /in/hrv.csv /out
-docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_metabolicCost /in/chrono.csv /in/subject_01_info.yaml /in/condition.yaml /in/subject_01_cond_01_choice_metabolicCost.yaml /out
+docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_metabolicCost /in/chrono.csv /in/subject_01_info.yaml /in/condition.yaml /in/subject_01_condition_01_choice_metabolicCost.yaml /out
 docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_questionnaire /in/questionnaire_medAssist.csv /out
 docker run --rm -v $PWD/testdata/input:/in -v $PWD/output:/out pi_ctag ./run_pi_rangeofMotion /in/jointAngles.csv /out
 
@@ -232,7 +232,7 @@ Following are the files and corresponding preprocessing required for EB ready:
 8. `input/condition_Y.yaml`
    - Populate or create testbed conditions by inserting: `assistance_level, number_runs, number_subjects, force, height1, height2, load, velocity, horizontalMovement, slope` (for details see the Git hub documentation).
 
-9. `input/subject_X_cond_Y_choice_metabolicCost.yaml`
+9. `input/subject_X_condition_Y_choice_metabolicCost.yaml`
    - Populate or create this file for the subjective choice relevant to the testbed testing condition by inserting: `mainOption1, subOption1, mainOption2, subOption2, mainOption3, subOption3` (for details see the Git hub documentation)
 
 ## Acknowledgements
