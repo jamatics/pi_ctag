@@ -8,7 +8,7 @@ arg_list = argv ();
 if nargin != 5
   printf ("ERROR: There should be 5 args. A .csv file containing the experiment data, a .yaml file containing the subject data, a .yaml file containing the test conditions, a .yaml file containing the metabolic cost options and the dir where the results will be stored\n");
   printf ("Usage:\n");
-  printf ("\t./pi_run_metabolicCost chrono.csv subject_01_info.yaml  condition.yaml subject_01_choice_metabolicCost.yaml result_dir\n\n");
+  printf ("\t./pi_run_metabolicCost chrono.csv subject_01_info.yaml  condition.yaml subject_01_condition_01_choice_metabolicCost.yaml result_dir\n\n");
   exit(127);
 endif
 
